@@ -1,0 +1,33 @@
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	background-color: #F8EDE9;
+}
+
+.block {
+	width: 50%;
+	height: auto;
+	display: inline-block;
+	white-space: normal;
+	position: relative;
+}
+
+.block img {
+	width: 100%;
+}
+
+.block-left {
+	float: right;
+}
+
+.block-right {
+	float: left;
+}
+
+.root {
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+}
+
