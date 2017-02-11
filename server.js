@@ -59,7 +59,7 @@ app.post('/flowers_admin/save', auth, function (req, res) {
   		obj.dateCreate = new Date();
 
   		try {
-			flowers.Save( obj, function (error, data) {
+			    flowers.Save( obj, function (error, data) {
 		        if (!error)
 		          res.json({ type: 'success' });
 		        else
@@ -68,10 +68,25 @@ app.post('/flowers_admin/save', auth, function (req, res) {
   		} catch(e) {
 		    console.log(e);
 		    res.json({ type: 'error' });
-		}
+		  }
   	} else {
   		res.json({ type: 'error' });
   	}
+});
+
+app.get('/flowers_admin/get', auth, function (req, res) {
+  try {
+    flowers.Get(function (error, data) {
+      if (!error) {
+        //res.json({ flowers: data });
+        res.render('./partial/admin_list.ejs', { flowers: data });
+      }
+      else
+        return null;
+    })
+  } catch(e) {
+    return null;
+  }
 });
 
 function Guid() {

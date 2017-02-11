@@ -6,13 +6,17 @@ $(function () {
 
 	$('.address-map').click(function () {
 		$('.js-sa').hide();
-		$('.address-big').show();
+		$('.address-big').show(1000);
 	});
 
 	$('.close_block').click(function () {
 		$('.address-big').hide();
 		$('.js-sa').show(1000);
 	});
+
+	$('.hovereffect').click(function() {
+		
+	})
 
 	ymaps.ready(init);
 		var myMap,

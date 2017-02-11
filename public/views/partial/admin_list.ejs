@@ -1,0 +1,31 @@
+<table>
+	<thead>
+            <tr>
+              <th>№</th>
+              <th>Дата создания</th>
+              <th>Текст</th>
+              <th>Отображается на сайте?</th>
+              <th>Картинка</ht>
+              <th style="width:10%">Действия</th>
+            </tr>
+    </thead>
+    <tbody>
+    	<% if (flowers && flowers.length>0) { %>
+		  <% for(var i=0; i<flowers.length; i++) { %>
+		    <tr>
+		      <td><%= Number(i + 1) %></td>
+		      <td><%= flowers[i].dateCreate.getDate() + '.' + flowers[i].dateCreate.getMonth() + '.' +
+		      		  flowers[i].dateCreate.getFullYear()
+		      %></td>
+		      <td><%= flowers[i].content %></td>
+		      <td><%= flowers[i].isActive %></td>
+		      <td><%= flowers[i].src %></td>
+		      <td>
+		      </td>
+		    </tr>
+		  <% } %>
+		<% } else { %>
+		   <h1>Нет данных</h1>
+		<% } %>
+    </tbody>
+</table>

@@ -8,7 +8,7 @@ $(function () {
 		if(window.location.hash === '#new') {
 			CreateNew();
 		} else {
-			console.log(window.location.hash);
+			GetList();
 		}
 	}
 
@@ -34,6 +34,18 @@ $(function () {
 			if(res && res.type === 'success') {
 				toastr.success('Изменения успешно внесены')
 			}
+		}).fail(function(ex) {
+			toastr.error('Oh, something went wrong...');
+		});
+	}
+
+	function GetList() {
+		$.ajax({
+			method: "GET",
+			async: true,
+			url: '/flowers_admin/get'
+		}).done(function (data) {
+			$('.js-container').html(data);
 		}).fail(function(ex) {
 			toastr.error('Oh, something went wrong...');
 		});
