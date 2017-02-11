@@ -31,3 +31,19 @@ form div {
 #sub:hover {
 	background-color: #263B68;
 }
+
+table { 
+    width: 100%;
+    border: 1px double black;
+    border-collapse: collapse;
+}
+th { 
+	text-align: left;
+	background: #ccc;
+	padding: 5px;
+	border: 1px solid black;
+}
+td { 
+	padding: 5px;
+	border: 1px solid black;
+}

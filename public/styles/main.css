@@ -439,6 +439,7 @@ a {text-decoration: none;}
 
 .address-big-text div {
 	margin-bottom: 10px;
+	min-width: 142px;
 }
 
 .address-phone_big:before {
@@ -468,3 +469,13 @@ a {text-decoration: none;}
    background: url('../images/time.svg') no-repeat;
 }
 .address-pos_big { height: 120px }
+
+#logo-img {
+	width: 200px;
+	margin: 10px 20px;
+}
+.logo {
+	position: absolute;
+	z-index: 9999;
+	cursor: pointer;
+}
