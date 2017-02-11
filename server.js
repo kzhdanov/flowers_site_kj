@@ -3,7 +3,12 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var basicAuth = require('basic-auth-connect');
+var mysql = require('mysql');
+var conf = require('./server/config');
+var pool = mysql.createPool(conf);
+var flowers = require('./server/Models/FlowersModel')(pool);
 var compression = require('compression');
+
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -34,6 +39,50 @@ var auth = basicAuth('flowers_admin', 'test');
 app.get('/flowers_admin/', auth, function (req, res) {
   res.render('admin.ejs');
 });
+
+app.get('/flowers_admin/save', auth, function (req, res) {
+  res.render('./partial/admin_new.ejs');
+});
+
+app.post('/flowers_admin/save', auth, function (req, res) {
+	if (req.body !== null) {
+  		var obj = req.body;
+
+  		if(obj.isActive === 'on') {
+  			obj.isActive = 1;
+  			obj.dateActivation = new Date();
+  		} else {
+  			obj.isActive = 0;
+  		}
+
+  		obj.id = Guid();
+  		obj.dateCreate = new Date();
+
+  		try {
+			flowers.Save( obj, function (error, data) {
+		        if (!error)
+		          res.json({ type: 'success' });
+		        else
+		          res.json({ type: 'error' });
+	      	});
+  		} catch(e) {
+		    console.log(e);
+		    res.json({ type: 'error' });
+		}
+  	} else {
+  		res.json({ type: 'error' });
+  	}
+});
+
+function Guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  };
+
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+};
 
 app.listen(8081, function () {
   console.log('Server successfully started on 8081 port');

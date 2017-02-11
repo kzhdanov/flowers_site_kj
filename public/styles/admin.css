@@ -1,0 +1,33 @@
+form {
+	margin: 0 auto;
+	width: 400px;
+}
+
+form div {
+	margin: 20px 0;
+}
+
+#sub {
+	width: 100px;
+	height: 40px;
+	background-color: #3C5A99;
+	color: #FFF;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	float: right;
+	cursor: pointer;
+}
+
+#sub:hover {
+	background-color: #263B68;
+}

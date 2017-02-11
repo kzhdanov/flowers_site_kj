@@ -50,12 +50,7 @@ a {text-decoration: none;}
 .block-right {
 	/*float: left;*/
 }
-/*
-.root {
-	width: 100%;
-	white-space: nowrap;
-}
-*/
+
 .f_m {
 	position: absolute;
 	bottom: -200px;
