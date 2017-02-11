@@ -1,9 +1,35 @@
+@font-face {
+  font-family: 'Proxima Nova Thin';
+  src: url('../font/Proxima Nova/Proxima Nova Thin.otf');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Bold';
+  src: url('../font/Proxima Nova/Proxima Nova Bold.otf');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Light Italic';
+  src: url('../font/Proxima Nova/Proxima Nova Light Italic.otf');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Light';
+  src: url('../font/Proxima Nova/Proxima Nova Light.otf');
+}
+
+@font-face {
+  font-family: 'Cormorant Medium';
+  src: url('../font/Cormorant/Cormorant-Medium.ttf');
+}
+
 body {
 	padding: 0;
 	margin: 0;
 	width: 100%;
 	background-color: #F8EDE9;
 }
+a {text-decoration: none;}
 
 .block {
 	width: 50%;
@@ -22,12 +48,428 @@ body {
 }
 
 .block-right {
-	float: left;
+	/*float: left;*/
 }
-
+/*
 .root {
-	overflow: hidden;
 	width: 100%;
 	white-space: nowrap;
 }
+*/
+.f_m {
+	position: absolute;
+	bottom: -200px;
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 300px;
+}
 
+.f_m-content {
+	background-color: #F6F6F6;
+	width: 600px;
+	white-space: nowrap;
+}
+
+.f_m-menu div {
+	display: inline-block;
+	padding: 20px 0;
+	font-family: 'Proxima Nova Thin';
+	font-size: 18px;
+	white-space: normal;
+	width: 50%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.f_m-left {
+	float: left;
+}
+
+.f_m-right {
+	background-color: #F2E6E4;
+	float: right;
+}
+
+.text_content {
+	margin: 20px 0 0 0;
+	float: right;
+	width: 600px;
+	font-family: 'Proxima Nova Light Italic';
+	font-size: 16px;
+	text-align: left;
+}
+
+.text-head {
+	color: #48888C;
+	font-family: 'Proxima Nova Bold';
+	font-size: 36px;
+}
+
+.text_content p {
+	padding: 0 0 0 15px;
+	margin: 20px 0 0 0; 
+}
+
+.text-text {
+	text-indent: 20px;
+}
+
+.instagram {
+	margin: 0 auto;
+	width: 1200px;
+	height: 40px;
+	background-color: #48888C;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        -webkit-box-align: center;
+	        align-items: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        -webkit-box-pack: center;
+	        justify-content: center;
+}
+
+.instagram-info {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        -webkit-box-align: center;
+	        align-items: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        -webkit-box-pack: center;
+	        justify-content: center;
+	color: #FFF;
+}
+
+#insta-logo { width: 20px; height: 20px; }
+
+.instagram_fetch {
+	width: 100%;
+	height: 100px;
+	background-color: #FFF;
+}
+
+.footer {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+		-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        -webkit-box-align: center;
+		        align-items: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        -webkit-box-pack: center;
+	        justify-content: center;
+	margin-top: 40px;
+	background-color: #FFF;
+}
+
+.footer_content {
+	width: 1200px;
+	height: 100px;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        -webkit-box-pack: center;
+	        justify-content: center;
+	            -webkit-align-items: center;
+	                -ms-flex-align: center;
+	                    -webkit-box-align: center;
+	                    align-items: center;
+}
+.footer_content div {
+	width: 400px;
+}
+.footer_content-tl {
+	padding-left: 15px;
+	margin: 10px 0;
+	font-family: 'Proxima Nova Light';
+	font-size: 16px;
+	color: #666666;
+}
+
+.desireevent {
+	padding-left: 5px;
+	font-family: 'Proxima Nova Light';
+	font-size: 18px;
+}
+
+#vk_svg, #fb_svg, #insta-svg {
+	width: 40px; 
+	height: 40px;
+	margin: 0 30px;
+}
+
+.footer_content-ic {
+	text-align: center;
+}
+
+.footer_content-tr {
+	text-align: right;
+	padding-right: 15px;
+	font-family: 'Proxima Nova Light';
+	font-size: 16px;
+	color: #666666;
+}
+
+.fb:hover .st1  {
+	fill: #3C5A99;
+}
+.inst:hover .st0  {
+	fill: #6600FF;
+}
+.vk:hover .st0 {
+	fill: #52739B;
+}
+/* ЭФФЕКТ СТРЕЛКИ И ФОНА */
+.overlay {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.6);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  transition: opacity 0.35s, -webkit-transform 0.35s;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
+}
+
+.hovereffect a.arrow {
+  right: 96px;
+  position: absolute;
+  color: #fff;
+  margin: 50px 0 0 0;
+  background-color: transparent;
+          -webkit-transform: translateY(200px);
+              -ms-transform: translateY(200px);
+                  transform: translateY(200px);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.hovereffect a.arrowL {
+  left: 96px;
+  position: absolute;
+  color: #fff;
+  margin: 50px 0 0 0;
+  background-color: transparent;
+          -webkit-transform: translateY(200px);
+              -ms-transform: translateY(200px);
+                  transform: translateY(200px);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  cursor: pointer;
+}
+.hovereffect:hover a.arrow, .hovereffect:hover a.arrowL{
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+#arrow-r {
+	width: 100px;
+	height: auto;
+	fill: #FFF;
+}
+#arrow-l {
+	width: 120px;
+	height: auto;
+	fill: #FFF;
+}
+.decor {
+	font-family: 'Cormorant Medium';
+	color: #FFF;
+	z-index: 99999;
+	font-size: 24px;
+	right: 109px;
+    top: 25px;
+    position: absolute;
+    cursor: pointer;
+}
+.bouquet {
+	font-family: 'Cormorant Medium';
+	color: #FFF;
+	z-index: 99999;
+	font-size: 24px;
+	left: 109px;
+    top: 25px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.address {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 200px;
+	min-height: 86px;
+	z-index: 99999;
+	background-color: #3B8B8F;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        -webkit-box-align: center;
+	        align-items: center; 
+	-webkit-transition: height 1s; 
+	transition: height 1s;  
+}
+
+.address-phone {
+	color: #FFF;
+	padding: 20px;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        -webkit-box-flex: 1;
+	        flex-grow: 1;
+	font-family: 'Proxima Nova Light';
+	font-size: 18px;
+}
+
+.address-map {
+	min-width: 60px;
+	min-height: 86px;
+	background-color: #498684;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        -webkit-box-align: center;
+	        align-items: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        -webkit-box-pack: center;
+	        justify-content: center;
+	font-family: 'Proxima Nova Thin';
+	font-size: 12px;   
+	color: #FFF;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        -webkit-box-orient: vertical;
+	        -webkit-box-direction: normal;
+	        flex-direction: column;  
+	cursor: pointer;  
+}
+
+.address-map:hover {
+	background-color: #3B8B8F;
+}
+
+#map-icon {
+	width: 20px;
+	height: 20px;
+}
+
+.address_padding {
+	padding-top: 10px;
+}
+
+.address-big { 
+	width: 100%;
+	display: none;
+	position: relative;
+	min-height: 86px;
+}
+
+.close_block {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	font-family: 'Proxima Nova Thin';
+	font-size: 10px; 
+	text-align: center;
+	color: #FFF;
+	cursor: pointer;
+}
+
+#close { 
+	width: 24px; 
+	height: 24px;
+	fill: #FFF;
+}
+
+.address-big-text {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	margin-top: 85px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    color: #FFF;
+    font-family: 'Proxima Nova Light';
+    font-size: 18px;
+}
+
+.address-big-text div {
+	margin-bottom: 10px;
+}
+
+.address-phone_big:before {
+   content: "";
+   position: absolute;
+   left: 10px; 
+   width: 15px;
+   height: 15px;
+   background: url('../images/phone.svg') no-repeat;
+}
+
+.address-time_big:before {
+   content: "";
+   position: absolute;
+   left: 10px; 
+   width: 15px;
+   height: 15px;
+   background: url('../images/time.svg') no-repeat;
+}
+
+.address-pos_big:before {
+   content: "";
+   position: absolute;
+   left: 10px; 
+   width: 15px;
+   height: 15px;
+   background: url('../images/time.svg') no-repeat;
+}
+.address-pos_big { height: 120px }
