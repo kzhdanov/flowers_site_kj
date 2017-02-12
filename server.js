@@ -32,6 +32,14 @@ app.get('/', function (req, res) {
   res.render('index.ejs');
 });
 
+app.get('/leftActive', function (req, res) {
+  res.render('./partial/left_active.ejs');
+});
+
+app.get('/rightActive', function (req, res) {
+  res.render('./partial/right_active.ejs');
+});
+
 ///АДМИНИСТРАТИВНАЯ ЧАСТЬ///
 var auth = basicAuth('flowers_admin', 'test');
 

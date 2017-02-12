@@ -31,6 +31,20 @@ body {
 }
 a {text-decoration: none;}
 
+.spacer {
+    width: 100%;
+    background: #FFF;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+}
+
+.spacer.active{
+	width: 50%;
+	right: 0;
+	height: 115% !important;
+}
+
 .block {
 	width: 50%;
 	height: auto;
@@ -49,22 +63,27 @@ a {text-decoration: none;}
 	float: right;
 }
 
-.block-right {
-	/*float: left;*/
+.f_m.active {
+	bottom: -270px;
+	background-color: #FFFFFF;
+	height: 300px;
+	width: 600px !important;
 }
 
 .f_m {
 	position: absolute;
-	bottom: -200px;
 	background-color: #FFFFFF;
 	width: 100%;
-	height: 300px;
+	min-height: 500px;
+    top: 83%;
 }
 
 .f_m-content {
-	background-color: #F6F6F6;
-	width: 600px;
-	white-space: nowrap;
+    background-color: #FFF;
+    width: 600px;
+    white-space: nowrap;
+    height: 100%;
+    position: relative;
 }
 
 .f_m-menu div {
@@ -78,22 +97,49 @@ a {text-decoration: none;}
 	cursor: pointer;
 }
 
+.f_m_views {
+	padding: 50px 10px 10px 10px;
+	height: 440px;
+	background-color: #F6F6F6;
+}
+
+.f_m_delivery {
+	display: none;
+}
+
+.f_m-menu {
+    position: absolute;
+    width: 100%;
+    top: -20px;
+}
+
 .f_m-left {
 	float: left;
+	background-color: #F6F6F6;
 }
+
+.f_m-left.unactive {
+	background-color: #F2E6E4;
+}
+
 
 .f_m-right {
 	background-color: #F2E6E4;
 	float: right;
 }
 
+.f_m-right.active {
+	background-color: #F6F6F6;
+}
+
 .text_content {
 	margin: 20px 0 0 0;
-	float: right;
 	width: 600px;
 	font-family: 'Proxima Nova Light Italic';
 	font-size: 16px;
 	text-align: left;
+	margin-left: -webkit-calc(50% - 600px);
+	margin-left: calc(50% - 600px)
 }
 
 .text-head {
@@ -112,6 +158,7 @@ a {text-decoration: none;}
 }
 
 .instagram {
+	z-index: 9999;
 	margin: 0 auto;
 	width: 1200px;
 	height: 40px;
@@ -149,6 +196,7 @@ a {text-decoration: none;}
 #insta-logo { width: 20px; height: 20px; }
 
 .instagram_fetch {
+	z-index: 9999;
 	width: 100%;
 	height: 100px;
 	background-color: #FFF;
@@ -293,7 +341,7 @@ a {text-decoration: none;}
   transform: translate(0px, 0px);
   cursor: pointer;
 }
-.hovereffectactive a.arrow {
+.hovereffectactive a.arrow, .hovereffectactive a.arrowL {
 	display: none;
 }
 
@@ -305,12 +353,12 @@ a {text-decoration: none;}
           transition-delay: 0.3s;
 }
 #arrow-r {
-	width: 100px;
+	width: 110px;
 	height: auto;
 	fill: #FFF;
 }
 #arrow-l {
-	width: 120px;
+	width: 110px;
 	height: auto;
 	fill: #FFF;
 }
@@ -324,10 +372,10 @@ a {text-decoration: none;}
     position: absolute;
     cursor: pointer;
 }
-.decor:hover {
+.decor:hover, .bouquet:hover {
 	color: #F8EDE9;
 }
-.decor:hover #closeX { fill: #F8EDE9; }
+.decor:hover #closeX, .bouquet:hover #closeX { fill: #F8EDE9; }
 .bouquet {
 	font-family: 'Cormorant Medium';
 	color: #FFF;
@@ -357,6 +405,7 @@ a {text-decoration: none;}
 	        align-items: center; 
 	-webkit-transition: height 1s; 
 	transition: height 1s;  
+	opacity: 0.86;
 }
 
 .address-phone {
@@ -394,11 +443,17 @@ a {text-decoration: none;}
 	        -webkit-box-orient: vertical;
 	        -webkit-box-direction: normal;
 	        flex-direction: column;  
-	cursor: pointer;  
+	cursor: pointer; 
+		opacity: 0.86; 
 }
 
 .address-map:hover {
 	background-color: #3B8B8F;
+	color: #F8EDE9;
+}
+
+.address-map:hover .cls-1 {
+	fill: #F8EDE9;
 }
 
 #map-icon {
@@ -426,6 +481,13 @@ a {text-decoration: none;}
 	text-align: center;
 	color: #FFF;
 	cursor: pointer;
+}
+
+.close_block:hover #close {
+	fill: #F8EDE9;
+}
+.close_block:hover {
+	color: #F8EDE9;
 }
 
 #close { 
@@ -507,4 +569,46 @@ a {text-decoration: none;}
     width: 20px;
     fill: #FFF;
     right: -25px;
+}
+
+.left_active {
+	margin: 20px auto;
+    width: 1200px;
+    font-family: 'Proxima Nova Light Italic';
+    font-size: 16px;
+    text-align: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.left_active-text {
+	width: 800px;
+}
+
+.right_active {
+	margin: 20px auto;
+    width: 1200px;
+    font-family: 'Proxima Nova Light Italic';
+    font-size: 16px;
+    text-align: left;
+}
+
+.right_active-text {
+    width: 580px;
+    text-align: left;
+    margin: 0 15px;
+}
+
+.right_active-spacer {
+	height: 200px;
 }
