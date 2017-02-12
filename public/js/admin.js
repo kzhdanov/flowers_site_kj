@@ -65,3 +65,52 @@ $(function () {
 		}
 	})
 })
+
+function ActiveClick(e) {
+	e.target.parentNode.nextElementSibling.nextElementSibling.children[0].style.display = '';
+}
+
+function SaveClick(e, id) {
+	e.preventDefault();
+	if(e.target.parentNode.previousElementSibling.previousElementSibling.childNodes[0].checked)
+		isActive = 1;
+	else 
+		isActive = 0;
+
+	$.ajax({
+		method: "POST",
+		async: true,
+		url: '/flowers_admin/savechange',
+		data: { 'isActive': isActive, 'id': id }
+	}).done(function (data) {
+		if(data && data.type === 'success') {
+			toastr.success('изменения сохранены');
+			e.target.style.display = 'none';
+		} else {
+			toastr.error('ошибка сохранения');
+		}
+	}).fail(function(ex) {
+		toastr.error('Oh, something went wrong...');
+	});
+}
+
+function DeleteClick (e, id){
+	e.preventDefault();
+
+	$.ajax({
+		method: "POST",
+		async: true,
+		url: '/flowers_admin/delete',
+		data: { 'id': id }
+	}).done(function (data) {
+		if(data && data.type === 'success') {
+			if(data && data.type === 'success') {
+				e.target.parentNode.parentNode.remove()
+			}
+		} else {
+			toastr.error('ошибка удаления записи');
+		}
+	}).fail(function(ex) {
+		toastr.error('Oh, something went wrong...');
+	});
+}

@@ -89,6 +89,50 @@ app.get('/flowers_admin/get', auth, function (req, res) {
   }
 });
 
+app.post('/flowers_admin/SaveChange', auth, function (req, res) {
+  try {
+    if (req.body !== null) {
+      var obj = req.body;
+      var isA = Number(obj.isActive);
+      
+      if(isA === 1)
+        obj.dateActivation = new Date();
+      else
+        obj.dateActivation = null;
+
+      flowers.SaveChange([isA, obj.dateActivation, obj.id], function (error, data) {
+          if (!error)
+            res.json({ type: 'success' });
+          else
+            res.json({ type: 'error' });
+      });
+    } else {
+      res.json({ type: 'error' });
+    }
+  } catch(e) {
+    res.json({ type: 'error' });
+  }
+});
+
+app.post('/flowers_admin/Delete', auth, function (req, res) {
+  try {
+    if (req.body !== null) {
+      var obj = req.body;
+
+      flowers.Delete(obj.id, function (error, data) {
+          if (!error)
+            res.json({ type: 'success' });
+          else
+            res.json({ type: 'error' });
+      });
+    } else {
+      res.json({ type: 'error' });
+    }
+  } catch(e) {
+    res.json({ type: 'error' });
+  }
+});
+
 function Guid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
