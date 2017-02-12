@@ -37,6 +37,8 @@ a {text-decoration: none;}
 	display: inline-block;
 	white-space: normal;
 	position: relative;
+	-webkit-transition: width 1s;
+	transition: width 1s; 
 }
 
 .block img {
@@ -157,10 +159,10 @@ a {text-decoration: none;}
 	display: -ms-flexbox;
 	display: -webkit-box;
 	display: flex;
-		-webkit-align-items: center;
-	    -ms-flex-align: center;
-	        -webkit-box-align: center;
-		        align-items: center;
+	-webkit-align-items: center;
+    -ms-flex-align: center;
+        -webkit-box-align: center;
+	        align-items: center;
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        -webkit-box-pack: center;
@@ -280,6 +282,21 @@ a {text-decoration: none;}
   transform: translate(0px, 0px);
   cursor: pointer;
 }
+/* АКТИВНЫЙ ЭЛЕМЕНТ */
+.hovereffectactive .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+  -webkit-transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  transform: translate(0px, 0px);
+  cursor: pointer;
+}
+.hovereffectactive a.arrow {
+	display: none;
+}
+
 .hovereffect:hover a.arrow, .hovereffect:hover a.arrowL{
   -webkit-transform: translateY(0px);
   -ms-transform: translateY(0px);
@@ -307,6 +324,10 @@ a {text-decoration: none;}
     position: absolute;
     cursor: pointer;
 }
+.decor:hover {
+	color: #F8EDE9;
+}
+.decor:hover #closeX { fill: #F8EDE9; }
 .bouquet {
 	font-family: 'Cormorant Medium';
 	color: #FFF;
@@ -478,4 +499,12 @@ a {text-decoration: none;}
 	position: absolute;
 	z-index: 9999;
 	cursor: pointer;
+}
+
+#closeX {
+    position: absolute;
+    top: -8px;
+    width: 20px;
+    fill: #FFF;
+    right: -25px;
 }

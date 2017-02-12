@@ -6,7 +6,7 @@
               <th>Текст</th>
               <th>Отображается на сайте?</th>
               <th>Картинка</ht>
-              <th style="width:10%">Действия</th>
+              <th style='width:180px;'>Действия</th>
             </tr>
     </thead>
     <tbody>
@@ -18,9 +18,11 @@
 		      		  flowers[i].dateCreate.getFullYear()
 		      %></td>
 		      <td><%= flowers[i].content %></td>
-		      <td><%= flowers[i].isActive %></td>
+		      <td><input type='checkbox' onclick="ActiveClick(event)" <%= flowers[i].isActive? 'checked' : '' %> /></td>
 		      <td><%= flowers[i].src %></td>
 		      <td>
+		      	<a href="#" style='display:none;' onclick="SaveClick(event, '<%= flowers[i].id %>')">Сохранить</a>
+		      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style='float: right' onclick="DeleteClick(event, '<%= flowers[i].id %>')">Удалить</a>
 		      </td>
 		    </tr>
 		  <% } %>
