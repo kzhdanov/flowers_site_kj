@@ -17,6 +17,8 @@
     "express": "^4.14.1",
     "jquery": "^3.1.1",
     "mysql": "^2.13.0",
+    "nodemailer": "^3.1.0",
+    "nodemailer-wellknown": "^0.2.1",
     "querystring": "^0.2.0"
   }
 }
