@@ -9,6 +9,8 @@ var pool = mysql.createPool(conf);
 var flowers = require('./server/Models/FlowersModel')(pool);
 var compression = require('compression');
 
+const nodemailer = require('nodemailer');
+const wellknown = require('nodemailer-wellknown');
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -29,6 +31,33 @@ app.use(function (req, res, next) {
 
 ///ГЛАВНАЯ
 app.get('/', function (req, res) {
+  /*
+    var smtpConfig = {
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true, 
+      auth: {
+          user: 'pinchv@gmail.com',
+          pass: '***'
+      }
+    };
+    let transporter = nodemailer.createTransport(smtpConfig);
+    let mailOptions = {
+        from: '"Fred Foo 👻" <pinchv@gmail.com>', // sender address
+        to: 'linteyz@yandex.ru', // list of receivers
+        subject: 'Hello ✔', // Subject line
+        text: 'Hello world ?', // plain text body
+        html: '<b>Hello world ?</b>' // html body
+    };
+
+    // send mail with defined transport object
+    return transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message %s sent: %s', info.messageId, info.response);
+    });
+    */
   res.render('index.ejs');
 });
 

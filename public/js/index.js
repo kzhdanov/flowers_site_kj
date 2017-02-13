@@ -178,6 +178,36 @@ $(function () {
 		}
 	})
 
+	/* ИНПУТЫ */
+	$('#fm_phone').inputmask("+7 (999) 999 99 99");
+	$('#fm_mail').inputmask({ alias: "email"});
+	$('#fm_data').inputmask({ alias: "date"});
+	$('#fm_time').inputmask("99:99");
+
+	$('.fm_btn').click(function () {
+		InputError.call($('#fm_name'));
+		InputError.call($('#fm_phone'));
+		InputError.call($('#fm_mail'));
+		InputError.call($('#fm_address'));
+		InputError.call($('#fm_data'));
+		//InputError.call($('#fm_time'));
+
+		if($('input.error').length === 0) {
+			alert('send');
+		}
+	});
+
+	function InputError() {
+		if(!$(this).val()) 
+			$(this).addClass('error');
+	}
+
+	$(document).off('keyup', 'input.error');
+	$(document).on('keyup', 'input.error', function () {
+		if($(this).val())
+			$(this).removeClass('error');
+	});
+
 	ymaps.ready(init);
 		var myMap,
 		    myPlacemark;
