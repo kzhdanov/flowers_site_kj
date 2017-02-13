@@ -1,6 +1,4 @@
 $(function () {
-	$('.spacer').css('height', $('.footer').offset().top + 'px');
-
 	var State = {
 		decoreBig: false,
 		bouquetBig: false,
@@ -64,6 +62,7 @@ $(function () {
 		var _self = $(this);
 		if ($(this).attr('data-side') === '0') {
 			if(!State.decoreBig) {
+				$('.spacer').hide();
 				$('.block-left').hide();
 				$('.block-right').css('width', '100%');
 				$('.block-right').find('.hovereffect').removeClass('hovereffect').addClass('hovereffectactive');
@@ -86,6 +85,7 @@ $(function () {
 				}, 1000)
 			} else {
 				if(e.target.className === 'decor' || e.target.id === 'closeX') {
+					$('.spacer').show();
 					$('.decor').css( 'display', 'none' );
 					$('.block-right').css('width', '50%');
 					$('.block-right').find('.hovereffectactive').removeClass('hovereffectactive').addClass('hovereffect');
@@ -108,7 +108,6 @@ $(function () {
 				$('.block-right').hide();
 				$('.block-left').css('width', '100%');
 				$('.block-left').find('.hovereffect').removeClass('hovereffect').addClass('hovereffectactive');
-				$('.spacer').addClass('active');
 
 				$(this).find('.overlay').css({'height': '100%'});
 				$('.bouquet').hide();
@@ -137,7 +136,6 @@ $(function () {
 				}, 1000)
 			} else {
 				if(e.target.className === 'bouquet' || e.target.id === 'closeX') {
-					$('.spacer').removeClass('active');
 					$('.right_active').hide();
 					$('.bouquet').css( 'display', 'none' );
 					$('.block-left').css('width', '50%');

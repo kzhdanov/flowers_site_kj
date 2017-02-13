@@ -28,21 +28,18 @@ body {
 	margin: 0;
 	width: 100%;
 	background-color: #F8EDE9;
+	position: relative;
 }
 a {text-decoration: none;}
 
 .spacer {
-    width: 100%;
+    width: 50%;
     background: #FFF;
     position: absolute;
     z-index: -1;
     top: 0;
-}
-
-.spacer.active{
-	width: 50%;
-	right: 0;
-	height: 115% !important;
+    right: 0;
+    height: 100%;
 }
 
 .block {
