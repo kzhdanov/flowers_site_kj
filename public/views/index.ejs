@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/wallop.css">
     <script type="text/javascript" src="./js/jquery.min.js"></script>
   </head>
   <body>
@@ -85,7 +86,28 @@
     						<% include  ./partial/menu_delivery.ejs %>
     					</div>
     				</div>
+            
     			</div>
+ 
+            <div class="Wallop">
+              <div class="Wallop-list">
+                <div class="Wallop-item w-item1">
+                  <div>Ксюша Беляева</div>
+                </div>
+                <div class="Wallop-item w-item2">
+                  <div>Дези Балде</div>
+                </div>
+                <div class="Wallop-item w-item3">
+                  <div>Анастасия Гайнуллина</div>
+                </div>
+                <div class="Wallop-item w-item4">
+                  <div>Anastasia Olegovna</div>
+                </div>
+              </div>
+              <div class="Wallop-buttonPrevious"><svg id="buttonPrevious" data-name="buttonPrevious" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 28"><title>left</title><polygon points="14 28 16 26 4 14 16 2 14 0 0 14 14 28"/></svg></div>
+              <div class="Wallop-buttonNext"><svg id="buttonNext" data-name="buttonNext" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 28"><polygon points="2 0 0 2 12 14 0 26 2 28 16 14 2 0"/></svg></div>
+            </div>   
+
     		</div> 
     	</div>
 
@@ -183,6 +205,7 @@
 
       <script type="text/javascript" src="../js/index.js"></script>
       <script type="text/javascript" src="./js/jquery.inputmask.bundle.min.js"></script>
+      <script type="text/javascript" src="../js/wallop.min.js"></script>
       <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
   </body>
 </html>
