@@ -19,7 +19,9 @@
 		      %></td>
 		      <td><%= flowers[i].content %></td>
 		      <td><input type='checkbox' onclick="ActiveClick(event)" <%= flowers[i].isActive? 'checked' : '' %> /></td>
-		      <td><%= flowers[i].src %></td>
+		      <td style='text-align:center;padding:0;'>
+		      	<img width="120px" src="./Downloads/<%= flowers[i].src %>"
+		      </td>
 		      <td>
 		      	<a href="#" style='display:none;' onclick="SaveClick(event, '<%= flowers[i].id %>')">Сохранить</a>
 		      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style='float: right' onclick="DeleteClick(event, '<%= flowers[i].id %>')">Удалить</a>

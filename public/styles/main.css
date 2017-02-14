@@ -546,18 +546,15 @@ input:focus {
 	width: 20px;
 	height: 20px;
 }
-
 .address_padding {
 	padding-top: 10px;
 }
-
 .address-big { 
 	width: 100%;
 	display: none;
 	position: relative;
 	min-height: 86px;
 }
-
 .close_block {
 	position: absolute;
 	top: 20px;
@@ -568,20 +565,17 @@ input:focus {
 	color: #FFF;
 	cursor: pointer;
 }
-
 .close_block:hover #close {
 	fill: #F8EDE9;
 }
 .close_block:hover {
 	color: #F8EDE9;
 }
-
 #close { 
 	width: 24px; 
 	height: 24px;
 	fill: #FFF;
 }
-
 .address-big-text {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -605,12 +599,10 @@ input:focus {
     font-family: 'Proxima Nova Light';
     font-size: 18px;
 }
-
 .address-big-text div {
 	margin-bottom: 10px;
 	min-width: 142px;
 }
-
 .address-phone_big:before {
    content: "";
    position: absolute;
@@ -619,7 +611,6 @@ input:focus {
    height: 15px;
    background: url('../images/phone.svg') no-repeat;
 }
-
 .address-time_big:before {
    content: "";
    position: absolute;
@@ -628,7 +619,6 @@ input:focus {
    height: 15px;
    background: url('../images/time.svg') no-repeat;
 }
-
 .address-pos_big:before {
    content: "";
    position: absolute;
@@ -638,7 +628,6 @@ input:focus {
    background: url('../images/time.svg') no-repeat;
 }
 .address-pos_big { height: 120px }
-
 #logo-img {
 	width: 200px;
 	margin: 10px 20px;
@@ -723,8 +712,6 @@ input:focus {
 	cursor: pointer;
 }
 .Wallop-list {
-/*  position: relative;
-  overflow: hidden; */
   text-align: center;
 }
 .Wallop-item {
@@ -737,8 +724,9 @@ input:focus {
 .Wallop-item div {
   padding-top: 135px;
   margin-top: -15px;
-  font-size: 20px;
+  font-size: 16px;
   color: #328B8E;
+  font-family: 'Proxima Nova Light';
 }
 .Wallop-item--current {
   visibility: visible;
