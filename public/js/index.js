@@ -208,6 +208,9 @@ $(function () {
 			$(this).removeClass('error');
 	});
 
+	var wallopEl = document.querySelector('.Wallop');
+  	var slider = new Wallop(wallopEl);
+
 	ymaps.ready(init);
 		var myMap,
 		    myPlacemark;
