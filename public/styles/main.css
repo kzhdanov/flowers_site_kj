@@ -219,18 +219,19 @@ input:focus {
 }
 
 .text_content {
-	margin: 20px 0 0 0;
 	width: 600px;
 	font-family: 'Cormorant Light Italic';
 	color: #666666;
 	font-size: 18px;
 	text-align: left;
+	margin-top: 20px;
 	margin-left: -webkit-calc(50% - 600px);
-	margin-left: calc(50% - 600px)
+	margin-left: calc(50% - 600px);
+	margin-bottom: 130px;
 }
 
 .text-head {
-	color: #48888C;
+	color: #328B8E;
 	font-family: 'Proxima Nova Bold';
 	font-size: 36px;
 }
@@ -249,7 +250,7 @@ input:focus {
 	margin: 0 auto;
 	width: 1200px;
 	height: 50px;
-	background-color: #48888C;
+	background-color: #328B8E;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: -webkit-box;
@@ -338,17 +339,14 @@ input:focus {
 	font-family: 'Proxima Nova Light';
 	font-size: 18px;
 }
-
 #vk_svg, #fb_svg, #insta-svg {
 	width: 40px; 
 	height: 40px;
 	margin: 0 30px;
 }
-
 .footer_content-ic {
 	text-align: center;
 }
-
 .footer_content-tr {
 	text-align: right;
 	padding-right: 15px;
@@ -356,7 +354,6 @@ input:focus {
 	font-size: 16px;
 	color: #666666;
 }
-
 .fb:hover .st1  {
 	fill: #3C5A99;
 }
@@ -479,7 +476,7 @@ input:focus {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 210px;
+	width: 300px;
     min-height: 120px;
     height: 120px;
 	z-index: 99999;
@@ -505,6 +502,7 @@ input:focus {
 	        flex-grow: 1;
 	font-family: 'Proxima Nova Light';
 	font-size: 18px;
+	letter-spacing: 2px;
 }
 .address-map {
 	width: 90px;
@@ -543,32 +541,34 @@ input:focus {
 	fill: #F8EDE9;
 }
 #map-icon {
-	width: 20px;
-	height: 20px;
+	width: 24px;
+	height: 28px;
 }
 .address_padding {
 	letter-spacing: 2px;
 	padding-top: 10px;
 }
 .address-big { 
-	position: absolute;
-	width: 210px;
+	position: fixed;
+	width: 300px;
 	display: none;
 	top: 0;
 	right: 0;
 	z-index: 999999999;
-	background-color: #498684;
-	min-height: 705px;
+	background-color: #328B8E;
+	min-height: 100%;
+	letter-spacing: 2px;
 }
 .close_block {
 	position: absolute;
-	top: 20px;
-	right: 20px;
+	top: 33px;
+	right: 16px;
 	font-family: 'Proxima Nova Thin';
-	font-size: 10px; 
+    font-size: 12px;
 	text-align: center;
 	color: #FFF;
 	cursor: pointer;
+	letter-spacing: 2px;
 }
 .close_block:hover #close {
 	fill: #F8EDE9;
@@ -577,8 +577,8 @@ input:focus {
 	color: #F8EDE9;
 }
 #close { 
-	width: 24px; 
-	height: 24px;
+	width: 28px; 
+	height: 28px;
 	fill: #FFF;
 }
 .address-big-text {
@@ -595,56 +595,62 @@ input:focus {
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-	margin-top: 85px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+	margin-top: 100px;
+    -webkit-box-align: left;
+    -webkit-align-items: left;
+        -ms-flex-align: left;
+            align-items: left;
     color: #FFF;
-    font-family: 'Proxima Nova Light';
+    font-family: 'Proxima Nova Thin';
     font-size: 18px;
 }
 .address-big-text div {
-	min-width: 150px;
+	min-width: 200px;
 }
 .address-big div {
 	opacity: .7;
+	-webkit-transition-property: opacity;
 	transition-property: opacity;
-	transition-duration: .5s;
-	transition-delay: 0s;
-	transition-timing-function: linear;
+	-webkit-transition-duration: .5s;
+	        transition-duration: .5s;
+	-webkit-transition-delay: 0s;
+	        transition-delay: 0s;
+	-webkit-transition-timing-function: linear;
+	        transition-timing-function: linear;
 }
-.address-phone_big, .address-time_big {
-	margin-bottom: 20px;
+.address-phone_big, .address-time_big, .address-pos_big {
+	margin: 20px 0 0 50px;
 }
 .address-phone_big:before {
    content: "";
    position: absolute;
-   left: 10px; 
-   width: 15px;
-   height: 15px;
+   left: 20px; 
+   width: 16px;
+   height: 20px;
    background: url('../images/phone.svg') no-repeat;
    margin-top: 4px;
 }
 .address-time_big:before {
    content: "";
    position: absolute;
-   left: 10px; 
-   width: 15px;
-   height: 15px;
+   width: 20px;
+   left: 20px; 
+   height: 20px;
    background: url('../images/time.svg') no-repeat;
    margin-top: 4px;
 }
 .address-pos_big:before {
    content: "";
    position: absolute;
-   left: 10px; 
-   width: 15px;
-   height: 15px;
+   left: 20px; 
+   width: 16px;
+   height: 20px;
    background: url('../images/mark.svg') no-repeat;
-   margin-top: 4px;
+   margin-top: 6px;
 }
-.address-pos_big { height: 120px }
+.address-pos_big { 
+	height: 120px;
+}
 #logo-img {
 	width: 200px;
 	margin: 10px 20px;
@@ -706,29 +712,32 @@ input:focus {
 }
 .w-item1 {
 	background: url('../images/Comment/anastasiaolegovna.png') no-repeat;
-	background-position: center;
-	background-size: 100px;
+	background-position: center top;
+	background-size: 130px;
 }
 .w-item2 {
 	background: url('../images/Comment/anastasiyagainullina.png') no-repeat;
-	background-position: center;
-	background-size: 100px;
+	background-position: center top;
+	background-size: 130px;
 }
 .w-item3 {
 	background: url('../images/Comment/dezibalde.png') no-repeat;
-	background-position: center;
-	background-size: 100px;
+	background-position: center top;
+	background-size: 130px;
 }
 .w-item4 {
 	background: url('../images/Comment/ksushabelyaeva.png') no-repeat;
-	background-position: center;
-	background-size: 100px;
+	background-position: center top;
+	background-size: 130px;
 }
 #buttonNext, #buttonPrevious {
 	fill: #328B8E;
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 28px;
 	cursor: pointer;
+}
+#buttonNext:hover, #buttonPrevious:hover {
+	fill: #10595C;
 }
 .Wallop-list {
   text-align: center;
@@ -741,23 +750,25 @@ input:focus {
   width: 100%;
 }
 .Wallop-item div {
-  padding-top: 135px;
-  margin-top: -15px;
-  font-size: 16px;
+  padding-top: 140px;
+  margin-top: 30px;
+  font-size: 24px;
   color: #328B8E;
   font-family: 'Proxima Nova Light';
+}
+.Wallop-item span {
+	color: #666666;
+	display: block;
+	padding: 10px;
+	font-family: 'Proxima Nova Thin';
 }
 .Wallop-item--current {
   visibility: visible;
   position: relative;
 }
-.Wallop-buttonNext {
+.Wallop-buttonNext, .Wallop-buttonPrevious {
     position: absolute;
-    top: 45px;
-    right: 10px;
+    top: 80px;
 }
-.Wallop-buttonPrevious {
-    position: absolute;
-    top: 45px;
-    left: 10px;
-}
+.Wallop-buttonNext {right: 10px;}
+.Wallop-buttonPrevious {left: 10px;}

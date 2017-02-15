@@ -62,11 +62,7 @@ $(function () {
 
 	$('.close_block').click(function () {
 		$('.address-big').hide();
-		$('.address-phone').css({'opacity': 0});
-
-		$('.address').show(1000, function () {
-			$('.address-phone').css({'opacity': 1});
-		});
+		$('.address').show();
 	});
 
 	$('.hovereffect').click(function(e) {
@@ -117,6 +113,7 @@ $(function () {
 		} else {
 			if(!State.bouquetBig) {
 				$('.block-right').hide();
+				$('.Wallop').hide();
 				$('.block-left').css('width', '100%');
 				$('.block-left').find('.hovereffect').removeClass('hovereffect').addClass('hovereffectactive');
 
@@ -155,6 +152,7 @@ $(function () {
 					$('.f_m').hide().removeClass('active').css({'right': 0, 'top': '83%'});
 
 					setTimeout(function () {
+						$('.Wallop').show();
 						$('.f_m').show();
 						$('.text_content').show();
 						$('.bouquet svg').remove();
