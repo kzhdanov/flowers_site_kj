@@ -49,13 +49,24 @@ $(function () {
 	})
 
 	$('.address-map').click(function () {
-		$('.js-sa').hide();
-		$('.address-big').show(1000);
+		$('.address-big div').css({'opacity': .7});
+		$('.address-big div').hide();
+		$('.address').hide();
+
+		$('.address-big').show(1000, function () {
+			$('.address-big div').show(1, function () {
+				$('.address-big div').css({'opacity': 1});
+			})
+		});
 	});
 
 	$('.close_block').click(function () {
 		$('.address-big').hide();
-		$('.js-sa').show(1000);
+		$('.address-phone').css({'opacity': 0});
+
+		$('.address').show(1000, function () {
+			$('.address-phone').css({'opacity': 1});
+		});
 	});
 
 	$('.hovereffect').click(function(e) {
