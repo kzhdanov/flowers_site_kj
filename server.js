@@ -69,6 +69,10 @@ app.get('/rightActive', function (req, res) {
   res.render('./partial/right_active.ejs');
 });
 
+app.post('/sendEmail', (req, res) => {
+  
+});
+
 ///АДМИНИСТРАТИВНАЯ ЧАСТЬ///
 var auth = basicAuth('flowers_admin', 'test');
 
@@ -115,7 +119,6 @@ app.get('/flowers_admin/get', auth, function (req, res) {
   try {
     flowers.Get(function (error, data) {
       if (!error) {
-        //res.json({ flowers: data });
         res.render('./partial/admin_list.ejs', { flowers: data });
       }
       else

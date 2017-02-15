@@ -2,30 +2,29 @@
   font-family: 'Proxima Nova Thin';
   src: url('../font/Proxima Nova/Proxima Nova Thin.otf');
 }
-
 @font-face {
   font-family: 'Proxima Nova Bold';
   src: url('../font/Proxima Nova/Proxima Nova Bold.otf');
 }
-
 @font-face {
   font-family: 'Proxima Nova Light Italic';
   src: url('../font/Proxima Nova/Proxima Nova Light Italic.otf');
 }
-
 @font-face {
   font-family: 'Proxima Nova Light';
   src: url('../font/Proxima Nova/Proxima Nova Light.otf');
 }
-
 @font-face {
   font-family: 'Cormorant Medium';
   src: url('../font/Cormorant/Cormorant-Medium.ttf');
 }
-
 @font-face {
   font-family: 'Proxima Nova Regular';
   src: url('../font/Proxima Nova/Proxima Nova Regular.otf');
+}
+@font-face {
+  font-family: 'Cormorant Light Italic';
+  src: url('../font/Cormorant/Cormorant-LightItalic.ttf');
 }
 
 body {
@@ -34,6 +33,7 @@ body {
 	width: 100%;
 	background-color: #F8EDE9;
 	position: relative;
+	overflow-x: hidden;
 }
 a {text-decoration: none; color: #328B8E;}
 
@@ -101,8 +101,8 @@ a {text-decoration: none; color: #328B8E;}
 }
 
 .f_m_views {
-	font-family: 'Proxima Nova Regular';
-    font-size: 16px;
+	font-family: 'Proxima Nova Thin';
+    font-size: 18px;
 	padding: 50px 10px 0 10px;
 	min-height: 450px;
 	background-color: #F6F6F6;
@@ -113,17 +113,17 @@ a {text-decoration: none; color: #328B8E;}
 	white-space: normal;
 }
 .f_m_views input[type="text"]:first-child {
-	margin-top: 10px;
+	margin-top: 15px;
 }
 .f_m_views input[type="text"] {
     width: 573px;
     background: transparent;
     border: none;
     border-bottom: 2px solid #328B8E;
-    line-height: 2;
     font-size: 16px;
     color: #328B8E;
-    margin-top: 20px;
+    margin-top: 22px;
+    padding-bottom: 10px;
 }
 
 .f_m_views input[type="text"].error {
@@ -221,8 +221,9 @@ input:focus {
 .text_content {
 	margin: 20px 0 0 0;
 	width: 600px;
-	font-family: 'Proxima Nova Light Italic';
-	font-size: 16px;
+	font-family: 'Cormorant Light Italic';
+	color: #666666;
+	font-size: 18px;
 	text-align: left;
 	margin-left: -webkit-calc(50% - 600px);
 	margin-left: calc(50% - 600px)
@@ -387,9 +388,9 @@ input:focus {
   color: #fff;
   margin: 50px 0 0 0;
   background-color: transparent;
-          -webkit-transform: translateY(200px);
-              -ms-transform: translateY(200px);
-                  transform: translateY(200px);
+          -webkit-transform: translateY(110px);
+              -ms-transform: translateY(110px);
+                  transform: translateY(110px);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -400,9 +401,9 @@ input:focus {
   color: #fff;
   margin: 50px 0 0 0;
   background-color: transparent;
-          -webkit-transform: translateY(200px);
-              -ms-transform: translateY(200px);
-                  transform: translateY(200px);
+          -webkit-transform: translateY(110px);
+              -ms-transform: translateY(110px);
+                  transform: translateY(110px);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
@@ -439,13 +440,13 @@ input:focus {
           transition-delay: 0.3s;
 }
 #arrow-r {
-	width: 110px;
-	height: auto;
+	width: 120px;
+    height: 26px;
 	fill: #FFF;
 }
 #arrow-l {
-	width: 110px;
-	height: auto;
+	width: 120px;
+    height: 26px;
 	fill: #FFF;
 }
 .decor {
@@ -457,6 +458,7 @@ input:focus {
     top: 25px;
     position: absolute;
     cursor: pointer;
+    letter-spacing: 3px;
 }
 .decor:hover, .bouquet:hover {
 	color: #F8EDE9;
@@ -471,14 +473,15 @@ input:focus {
     top: 25px;
     position: absolute;
     cursor: pointer;
+    letter-spacing: 3px;
 }
-
 .address {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 200px;
-	min-height: 86px;
+	width: 210px;
+    min-height: 120px;
+    height: 120px;
 	z-index: 99999;
 	background-color: #3B8B8F;
 	display: -webkit-flex;
@@ -493,7 +496,6 @@ input:focus {
 	transition: height 1s;  
 	opacity: 0.86;
 }
-
 .address-phone {
 	color: #FFF;
 	padding: 20px;
@@ -504,10 +506,9 @@ input:focus {
 	font-family: 'Proxima Nova Light';
 	font-size: 18px;
 }
-
 .address-map {
-	min-width: 60px;
-	min-height: 86px;
+	width: 90px;
+	height: 100%;
 	background-color: #498684;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -541,19 +542,23 @@ input:focus {
 .address-map:hover .cls-1 {
 	fill: #F8EDE9;
 }
-
 #map-icon {
 	width: 20px;
 	height: 20px;
 }
 .address_padding {
+	letter-spacing: 2px;
 	padding-top: 10px;
 }
 .address-big { 
-	width: 100%;
+	position: absolute;
+	width: 210px;
 	display: none;
-	position: relative;
-	min-height: 86px;
+	top: 0;
+	right: 0;
+	z-index: 999999999;
+	background-color: #498684;
+	min-height: 705px;
 }
 .close_block {
 	position: absolute;
@@ -600,8 +605,17 @@ input:focus {
     font-size: 18px;
 }
 .address-big-text div {
-	margin-bottom: 10px;
-	min-width: 142px;
+	min-width: 150px;
+}
+.address-big div {
+	opacity: .7;
+	transition-property: opacity;
+	transition-duration: .5s;
+	transition-delay: 0s;
+	transition-timing-function: linear;
+}
+.address-phone_big, .address-time_big {
+	margin-bottom: 20px;
 }
 .address-phone_big:before {
    content: "";
@@ -610,6 +624,7 @@ input:focus {
    width: 15px;
    height: 15px;
    background: url('../images/phone.svg') no-repeat;
+   margin-top: 4px;
 }
 .address-time_big:before {
    content: "";
@@ -618,6 +633,7 @@ input:focus {
    width: 15px;
    height: 15px;
    background: url('../images/time.svg') no-repeat;
+   margin-top: 4px;
 }
 .address-pos_big:before {
    content: "";
@@ -625,7 +641,8 @@ input:focus {
    left: 10px; 
    width: 15px;
    height: 15px;
-   background: url('../images/time.svg') no-repeat;
+   background: url('../images/mark.svg') no-repeat;
+   margin-top: 4px;
 }
 .address-pos_big { height: 120px }
 #logo-img {
@@ -647,8 +664,9 @@ input:focus {
 .left_active {
 	margin: 20px auto;
     width: 1200px;
-    font-family: 'Proxima Nova Light Italic';
-    font-size: 16px;
+    font-family: 'Cormorant Light Italic';
+    font-size: 18px;
+    color: #666666;
     text-align: center;
     display: -webkit-box;
     display: -webkit-flex;
@@ -708,7 +726,8 @@ input:focus {
 }
 #buttonNext, #buttonPrevious {
 	fill: #328B8E;
-	width: 18px;
+	width: 20px;
+	height: 20px;
 	cursor: pointer;
 }
 .Wallop-list {
