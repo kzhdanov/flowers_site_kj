@@ -202,9 +202,34 @@ $(function () {
 		//InputError.call($('#fm_time'));
 
 		if($('input.error').length === 0) {
-			alert('send');
+			SendEmail();
 		}
 	});
+
+	//ОТПРАВИМ ПИСЬМО С ЗАКАЗОМ
+	function SendEmail() {
+		$.ajax({
+			method: "POST",
+			async: true,
+			url: '/sendemail',
+			data: { 
+				fio: $('#fm_name').val(), 
+				phone: $('#fm_phone').val(),
+				mail: $('#fm_mail').val(),
+				address: $('#fm_address').val(),
+				date: $('#fm_data').val(),
+				time: $('#fm_time').val(),
+			}
+		}).done( function (answer) {
+			if(answer && answer.type === 'success') {
+				alert('Заказ сформирован');
+			} else {
+				alert('Не удалось сформировать заказ...');
+			}	 
+		}).fail(function(ex) {
+			alert('Oh, something went wrong...');
+		});
+	}
 
 	function InputError() {
 		if(!$(this).val()) 
@@ -217,6 +242,7 @@ $(function () {
 			$(this).removeClass('error');
 	});
 
+	//Слайдер
 	var wallopEl = document.querySelector('.Wallop');
   	var slider = new Wallop(wallopEl);
 
