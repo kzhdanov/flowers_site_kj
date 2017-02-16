@@ -8,9 +8,7 @@ var conf = require('./server/config');
 var pool = mysql.createPool(conf);
 var flowers = require('./server/Models/FlowersModel')(pool);
 var compression = require('compression');
-
 const nodemailer = require('nodemailer');
-const wellknown = require('nodemailer-wellknown');
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -31,33 +29,6 @@ app.use(function (req, res, next) {
 
 ///ГЛАВНАЯ
 app.get('/', function (req, res) {
-  /*
-    var smtpConfig = {
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true, 
-      auth: {
-          user: 'pinchv@gmail.com',
-          pass: '***'
-      }
-    };
-    let transporter = nodemailer.createTransport(smtpConfig);
-    let mailOptions = {
-        from: '"Fred Foo 👻" <pinchv@gmail.com>', // sender address
-        to: 'linteyz@yandex.ru', // list of receivers
-        subject: 'Hello ✔', // Subject line
-        text: 'Hello world ?', // plain text body
-        html: '<b>Hello world ?</b>' // html body
-    };
-
-    // send mail with defined transport object
-    return transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('Message %s sent: %s', info.messageId, info.response);
-    });
-    */
   res.render('index.ejs');
 });
 
@@ -70,7 +41,42 @@ app.get('/rightActive', function (req, res) {
 });
 
 app.post('/sendEmail', (req, res) => {
-  
+  //https://www.google.com/settings/security/lesssecureapps
+  if(req.body) {
+    let {fio, phone, mail, address, date, time} = req.body;
+
+    let transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'pinchv@gmail.com',
+        pass: '***',
+      }
+    });
+
+    let body = `ФИО - ${fio} <br />
+                Телефон - ${phone} <br />
+                E-Mail - ${mail} <br />
+                Адрес доставки - ${address} <br />
+                Дата доставки - ${date} <br />
+                Время доставки - ${time}<br />`;
+
+    let options = {
+      from: 'DesireEvent mail robot' + ' <pinchv@gmail.com>',
+      to: 'linteyz@yandex.ru',
+      subject: '(Доставка) Заказ букета с сайта DesireEvent',
+      html: body,
+    };
+
+    transporter.sendMail(options, function(err, info) {
+      if (err) {
+        console.log(err);
+        res.json({ type: 'error' });
+      }
+
+      console.log("Сообщение отправлено: " + info.response);
+      res.json({ type: 'success' });
+    });
+  }
 });
 
 ///АДМИНИСТРАТИВНАЯ ЧАСТЬ///
