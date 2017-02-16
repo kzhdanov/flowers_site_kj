@@ -775,4 +775,10 @@ input:focus {
 	.f_m_views input[type="text"] { width: 100%; }
 	.Wallop {width:88%;}
 	.f_m_views {height: 460px;}
+	.footer_content .footer_content-ic{ width:80%; }
+}
+
+@media all and (max-width: 960px) {
+	.instagram_fetch, .instagram { display: none; }
+	.block { width: 100%; }
 }
