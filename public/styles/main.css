@@ -47,7 +47,6 @@ a {text-decoration: none; color: #328B8E;}
     right: 0;
     height: 100%;
 }
-
 .block {
 	width: 50%;
 	height: auto;
@@ -57,22 +56,18 @@ a {text-decoration: none; color: #328B8E;}
 	-webkit-transition: width 1s;
 	transition: width 1s; 
 }
-
 .block img {
 	width: 100%;
 }
-
 .block-left {
 	float: right;
 }
-
 .f_m.active {
 	bottom: -270px;
 	background-color: #FFFFFF;
 	height: 300px;
 	width: 600px !important;
 }
-
 .f_m {
 	position: absolute;
 	background-color: #FFFFFF;
@@ -80,7 +75,6 @@ a {text-decoration: none; color: #328B8E;}
 	min-height: 500px;
     top: 83%;
 }
-
 .f_m-content {
     background-color: #FFF;
     width: 600px;
@@ -88,7 +82,6 @@ a {text-decoration: none; color: #328B8E;}
     height: 100%;
     position: relative;
 }
-
 .f_m-menu div {
 	display: inline-block;
 	padding: 20px 0;
@@ -99,7 +92,6 @@ a {text-decoration: none; color: #328B8E;}
 	text-align: center;
 	cursor: pointer;
 }
-
 .f_m_views {
 	font-family: 'Proxima Nova Thin';
     font-size: 18px;
@@ -107,7 +99,6 @@ a {text-decoration: none; color: #328B8E;}
 	min-height: 450px;
 	background-color: #F6F6F6;
 }
-
 .f_m_delivery {
 	display: none;
 	white-space: normal;
@@ -772,3 +763,16 @@ input:focus {
 }
 .Wallop-buttonNext {right: 10px;}
 .Wallop-buttonPrevious {left: 10px;}
+
+@media all and (max-width: 1199px) {
+	.footer_content { width: 100%; }
+	.instagram { width: 100%; }
+	.text_content {
+		margin-left: 0 ;
+		width: 50%;
+	}
+	.f_m-content { width:100%; }
+	.f_m_views input[type="text"] { width: 100%; }
+	.Wallop {width:88%;}
+	.f_m_views {height: 460px;}
+}
