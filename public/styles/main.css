@@ -776,6 +776,7 @@ input:focus {
 	.Wallop {width:88%;}
 	.f_m_views {height: 460px;}
 	.footer_content .footer_content-ic{ width:80%; }
+	#fm_time { margin-left: 3%; }
 }
 /* Мобилы и планшеты */
 @media all and (max-width: 960px) {

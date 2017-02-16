@@ -48,7 +48,7 @@ app.post('/sendEmail', (req, res) => {
     let transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'pinchv@gmail.com',
+        user: 'DesireEvent007@gmail.com',
         pass: '***',
       }
     });
@@ -61,7 +61,7 @@ app.post('/sendEmail', (req, res) => {
                 Время доставки - ${time}<br />`;
 
     let options = {
-      from: 'DesireEvent mail robot' + ' <pinchv@gmail.com>',
+      from: 'DesireEvent mail robot' + ' <DesireEvent007@gmail.com>',
       to: 'linteyz@yandex.ru',
       subject: '(Доставка) Заказ букета с сайта DesireEvent',
       html: body,
