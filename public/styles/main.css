@@ -827,7 +827,6 @@ input:focus {
     bottom: 10px;
     left: 10px;
 }
-
 /* Средние экраны */
 @media all and (max-width: 1199px) {
 	.text_content {
@@ -847,6 +846,7 @@ input:focus {
 	.right_active { width: 50%;	margin: 20px 0;}
 	.right_active-text{ width: auto; }
 	.f_m.active {width:50%;}
+	.weddings { justify-content: center; }
 }
 @media all and (max-width: 1080px) {
 	.address {width:90px;}
