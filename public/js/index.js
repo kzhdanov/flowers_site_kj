@@ -47,7 +47,7 @@ $(function () {
 		else 
 			$(this).find('.overlay').css('height', $('.img-right').css('height'));
 	})
-
+	
 	$('.address-map').click(function () {
 		$('.address-big div').css({'opacity': .7});
 		$('.address-big div').hide();

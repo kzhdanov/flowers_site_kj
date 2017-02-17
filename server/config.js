@@ -6,4 +6,8 @@ module.exports =
 	database: 'Flowers',
 	user: 'Ivan',
 	password: 'Ivan_WWW2016@ru',
+	managerEmail: 'linteyz@yandex.ru',
+	managerEmailPass: '***',
+	siteAdminLogin: 'flowers_admin',
+	siteAdminPassword: 'test',
 }
