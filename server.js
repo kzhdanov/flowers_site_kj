@@ -49,7 +49,7 @@ app.post('/sendEmail', (req, res) => {
       service: 'Gmail',
       auth: {
         user: 'DesireEvent007@gmail.com',
-        pass: '***',
+        pass: conf.managerEmailPass,
       }
     });
 
@@ -61,8 +61,8 @@ app.post('/sendEmail', (req, res) => {
                 Время доставки - ${time}<br />`;
 
     let options = {
-      from: 'DesireEvent mail robot' + ' <DesireEvent007@gmail.com>',
-      to: 'linteyz@yandex.ru',
+      from: 'DesireEvent Mail Robot' + ' <DesireEvent007@gmail.com>',
+      to: conf.managerEmail,
       subject: '(Доставка) Заказ букета с сайта DesireEvent',
       html: body,
     };
@@ -80,7 +80,7 @@ app.post('/sendEmail', (req, res) => {
 });
 
 ///АДМИНИСТРАТИВНАЯ ЧАСТЬ///
-var auth = basicAuth('flowers_admin', 'test');
+var auth = basicAuth(conf.siteAdminLogin, conf.siteAdminPassword);
 
 ///АДМИНКА
 app.get('/flowers_admin/', auth, function (req, res) {
