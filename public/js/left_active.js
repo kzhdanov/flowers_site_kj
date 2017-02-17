@@ -15,4 +15,5 @@ $(function () {
 		dialog.css('left', winW/2-dialog.width()/2);
 		dialog.fadeIn(2000);
 		*/
+	});
 })
