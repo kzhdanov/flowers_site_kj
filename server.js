@@ -40,6 +40,24 @@ app.get('/rightActive', function (req, res) {
   res.render('./partial/right_active.ejs');
 });
 
+app.get('/getBouquets', function (req, res) {
+  flowers.GetBouquetsActive(function (error, data) {
+    if (!error)
+      res.render('./bouquet.ejs', { data: data });
+    else 
+      console.log(error);
+  });
+});
+
+app.get('/getFlowers', function (req, res) {
+  flowers.GetFlowersActive(function (error, data) {
+    if (!error)
+      res.render('./flowers.ejs', { data: data });
+    else 
+      console.log(error);
+  });
+});
+
 app.post('/sendEmail', (req, res) => {
   //https://www.google.com/settings/security/lesssecureapps
   if(req.body) {
@@ -166,6 +184,99 @@ app.post('/flowers_admin/Delete', auth, function (req, res) {
       var obj = req.body;
 
       flowers.Delete(obj.id, function (error, data) {
+          if (!error)
+            res.json({ type: 'success' });
+          else
+            res.json({ type: 'error' });
+      });
+    } else {
+      res.json({ type: 'error' });
+    }
+  } catch(e) {
+    res.json({ type: 'error' });
+  }
+});
+
+///////// ЦВЕТЫ //////////
+app.get('/flowers_admin/newFlower', auth, function (req, res) {
+  res.render('./partial/admin_newFlower.ejs');
+});
+
+app.post('/flowers_admin/newflower', auth, function (req, res) {
+  if (req.body !== null) {
+      var obj = req.body;
+
+      if(obj.isActive === 'on') {
+        obj.isActive = 1;
+        obj.dateActivation = new Date();
+      } else {
+        obj.isActive = 0;
+      }
+
+      obj.id = Guid();
+      obj.dateCreate = new Date();
+
+      try {
+          flowers.SaveFlower( obj, function (error, data) {
+            if (!error)
+              res.json({ type: 'success' });
+            else
+              res.json({ type: 'error' });
+          });
+      } catch(e) {
+        console.log(e);
+        res.json({ type: 'error' });
+      }
+    } else {
+      res.json({ type: 'error' });
+    }
+})
+
+app.get('/flowers_admin/getFlowers', auth, function (req, res) {
+  try {
+    flowers.getFlowers(function (error, data) {
+      if (!error) {
+        res.render('./partial/admin_listFowers.ejs', { flowers: data });
+      }
+      else
+        return null;
+    })
+  } catch(e) {
+    return null;
+  }
+});
+
+app.post('/flowers_admin/SaveChangeFlower', auth, function (req, res) {
+  try {
+    if (req.body !== null) {
+      var obj = req.body;
+      var isA = Number(obj.isActive);
+      
+      if(isA === 1)
+        obj.dateActivation = new Date();
+      else
+        obj.dateActivation = null;
+
+      flowers.SaveChangeFlower([isA, obj.dateActivation, obj.id], function (error, data) {
+          if (!error)
+            res.json({ type: 'success' });
+          else
+            res.json({ type: 'error' });
+      });
+    } else {
+      res.json({ type: 'error' });
+    }
+  } catch(e) {
+    res.json({ type: 'error' });
+  }
+});
+
+app.post('/flowers_admin/DeleteFlower', auth, function (req, res) {
+  try {
+    if (req.body !== null) {
+      var obj = req.body;
+
+      flowers.DeleteFlower(obj.id, function (error, data) {
           if (!error)
             res.json({ type: 'success' });
           else
