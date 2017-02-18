@@ -3,6 +3,8 @@ $(function () {
 		decoreBig: false,
 		bouquetBig: false,
 		menu_l: true,
+		sliderPosition: 0,
+		sliderStep: 50,
 	}
 	var closeX = '<svg id="closeX" data-name="closeX" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><polygon points="16 14 28 2 26 0 26 0 14 12 2 0 0 2 12 14 0 26 2 28 14 16 26 28 28 26 28 26 16 14"></polygon></svg>';
 
@@ -42,10 +44,18 @@ $(function () {
 
 	//Появление срелки height
 	$('.hovereffect').mouseenter(function () {
-		if($(this).attr('data-side') == 0)
-			$(this).find('.overlay').css('height', $('.img-left').css('height'));
-		else 
-			$(this).find('.overlay').css('height', $('.img-right').css('height'));
+		if($(this).attr('data-side') == 0) {
+			if(!State.decoreBig)
+				$(this).find('.overlay').css({
+					'height': $('.img-left').css('height')
+				});
+		}
+		else {
+			if(!State.bouquetBig)
+				$(this).find('.overlay').css({
+					'height': $('.img-right').css('height')
+				});
+		}
 	})
 	
 	$('.address-map').click(function () {
@@ -69,12 +79,19 @@ $(function () {
 		var _self = $(this);
 		if ($(this).attr('data-side') === '0') {
 			if(!State.decoreBig) {
+				var size = $('.block-right').find('.hovereffect').css('height');
+
+				$('.img-left').css('margin-top', Number(-1 * $('.img-left').css('height')
+												 .substring(0, size.length - 2) / 2) + 'px');
+
 				$('.spacer').hide();
 				$('.block-left').hide();
 				$('.block-right').css('width', '100%');
-				$('.block-right').find('.hovereffect').removeClass('hovereffect').addClass('hovereffectactive');
+				$('.block-right').find('.hovereffect').removeClass('hovereffect')
+				.addClass('hovereffectactive');
 
-				$(this).find('.overlay').css('height', '100%');
+				$('.hovereffectactive').css('height', size);
+				$(this).find('.overlay').css('opacity', '0');
 				$('.decor').hide();
 				$('.text_content').hide();
 				setTimeout(function () {
@@ -87,40 +104,48 @@ $(function () {
 					var centerDecor = Number($('.img-left').css('width').substring(0, lng-2) / 2) + 'px';
 					$('.decor').css( 'right', centerDecor );
 					$('.decor').css( 'display', '' ).append(closeX);
-					_self.find('.overlay').css( 'height', $('.img-left').css('height') );
+					_self.find('.overlay').css( {'height': size, 'opacity': '1'} );
 					State.decoreBig = true;
 				}, 1000)
 			} else {
 				if(e.target.className === 'decor' || e.target.id === 'closeX') {
+					$('.img-left').css('margin-top', 0);
+					$(this).find('.overlay').css('opacity', '0');
 					$('.spacer').show();
 					$('.decor').css( 'display', 'none' );
 					$('.block-right').css('width', '50%');
-					$('.block-right').find('.hovereffectactive').removeClass('hovereffectactive').addClass('hovereffect');
+					$('.block-right').find('.hovereffectactive').removeClass('hovereffectactive')
+					.addClass('hovereffect');
 					GlobFunction.leftUnActive();
 
 					setTimeout(function () {
+						var img = $('.hovereffect').eq(0).find('img').css('height');
 						$('.decor svg').remove();
 						$('.decor').css( 'right', '109px' );
 						$('.decor').css( 'display', '' );
-						$('.block-left').show();
-						_self.find('.overlay').css( 'height', $('.img-left').css('height') );
-						$('.text_content').show();
-						
+						$('.block-left, .text_content').show();
+
+						$('.hovereffect').css('height', '');
+						_self.find('.overlay').css( {'height': img,'opacity':''} );
 						State.decoreBig = false;
 					}, 1000);
 				}	
 			}
 		} else {
 			if(!State.bouquetBig) {
-				$('.block-right').hide();
-				$('.Wallop').hide();
-				$('.block-left').css('width', '100%');
-				$('.block-left').find('.hovereffect').removeClass('hovereffect').addClass('hovereffectactive');
+				var size = $('.block-right').find('.hovereffect').css('height');
 
-				$(this).find('.overlay').css({'height': '100%'});
-				$('.bouquet').hide();
-				$('.f_m').hide();
-				$('.text_content').hide();
+				$('.img-right').css('margin-top', Number(-1 * $('.img-right').css('height')
+												 .substring(0, size.length - 2) / 2) + 'px');
+
+				$('.block-left').css('width', '100%');
+				$('.block-left').find('.hovereffect').removeClass('hovereffect')
+				.addClass('hovereffectactive');
+
+				$('.hovereffectactive').css('height', size);
+				$(this).find('.overlay').css('opacity', '0');
+
+				$('.bouquet, .f_m, .text_content, .block-right, .Wallop').hide();
 
 				setTimeout(function () {
 					if($('.right_active').length === 0) {
@@ -130,36 +155,36 @@ $(function () {
 					}
 
 					var coord = $('.instagram').eq(0).offset();
-					$('.f_m').show().addClass('active');
-					var lng = $('.img-right').css('height').length;
-					var imgBottomPosition = Number($('.img-right').css('height').substring(0, lng-2));
-					$('.f_m').css({ 'right': coord.left, 'top': imgBottomPosition + 'px' });
-
+					$('.f_m').show().addClass('active').css({ 'right': coord.left, 'top': size });
 					var lng = $('.img-right').css('width').length;
 					var centerDecor = Number($('.img-right').css('width').substring(0, lng-2) / 2) + 'px';
 					$('.bouquet').css( 'left', centerDecor );
 					$('.bouquet').css( 'display', '' ).append(closeX);
-					_self.find('.overlay').css( 'height', $('.img-right').css('height') );
+					_self.find('.overlay').css( {'height': size, 'opacity': '1'} );
 					State.bouquetBig = true;
 				}, 1000)
 			} else {
 				if(e.target.className === 'bouquet' || e.target.id === 'closeX') {
+					$('.img-right').css('margin-top', 0);
+					$(this).find('.overlay').css('opacity', '0');
 					$('.right_active').hide();
 					$('.bouquet').css( 'display', 'none' );
 					$('.block-left').css('width', '50%');
-					$('.block-left').find('.hovereffectactive').removeClass('hovereffectactive').addClass('hovereffect');
+					$('.block-left').find('.hovereffectactive').removeClass('hovereffectactive')
+					.addClass('hovereffect');
 					
 					$('.f_m').hide().removeClass('active').css({'right': 0, 'top': '83%'});
 
 					setTimeout(function () {
-						$('.Wallop').show();
-						$('.f_m').show();
-						$('.text_content').show();
+						var img = $('.hovereffect').eq(0).find('img').css('height');
+						$('.Wallop, .f_m, .text_content').show();
 						$('.bouquet svg').remove();
 						$('.bouquet').css( 'left', '109px' );
 						$('.bouquet').css( 'display', '' );
 						$('.block-right').show();
-						_self.find('.overlay').css( 'height', $('.img-right').css('height') );
+
+						$('.hovereffect').css('height', '');
+						_self.find('.overlay').css({'height': img,'opacity':''});
 						State.bouquetBig = false;
 					}, 1000);
 				}	
@@ -246,6 +271,78 @@ $(function () {
 	var wallopEl = document.querySelector('.Wallop');
   	var slider = new Wallop(wallopEl);
 
+  	//bouquet 
+  	function GetBouquetsMain () {
+		$.ajax({
+			method: "GET",
+			async: true,
+			url: '/getbouquets',
+		}).done( function (res) {
+			$('.bouquet_container_main').html(res);
+		}).fail(function(ex) {
+			toastr.error('Oh, something went wrong...');
+		});
+	}
+	GetBouquetsMain();
+
+	//flowers
+	function GetFlowersMain () {
+		$.ajax({
+			method: "GET",
+			async: true,
+			url: '/getflowers',
+		}).done( function (res) {
+			$('.flowers_container_slider').html(res);
+		}).fail(function(ex) {
+			toastr.error('Oh, something went wrong...');
+		});
+	}
+	GetFlowersMain();
+
+	$(document).off('click','.flowers_nextbtn');
+	$(document).on('click','.flowers_nextbtn', function () {
+		var lng = $('.flowers_container_slider div').length;
+		if(!$('.flowers_prevbtn').is(':visible')) {
+			$('.flowers_prevbtn').show();
+		}
+
+		if(Number($('.flowers_container_slider div').eq(lng - 1).position().left + State.sliderStep) > 
+			$('.flowers_nextbtn').position().left) {
+				State.sliderPosition += Number(-1 * State.sliderStep);
+				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
+		} else {
+			$(this).hide();
+		}
+	});
+
+	$(document).off('click','.flowers_prevbtn');
+	$(document).on('click','.flowers_prevbtn', function () {
+		if(!$('.flowers_nextbtn').is(':visible')) {
+			$('.flowers_nextbtn').show();
+		}
+
+		if($('.flowers_container_slider div').eq(0).css('margin-left') != '0px') {
+				State.sliderPosition += Number( State.sliderStep);
+				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
+		} else {
+			$(this).hide();
+		}
+	});
+
+	$(document).off('click', '.bouquet_container_main div');
+	$(document).on('click','.bouquet_container_main div', function () {
+		var src = $(this).find('img').attr('src');
+		$('.js-popUp-content').text($(this).attr('data-content'));
+		$('.js-popUp-price').text($(this).attr('data-price') + '₽');
+
+		$('.popUp-img').attr('src', src);
+		$('.popUp').show();
+	});
+
+	$(document).off('click', '.popUp-cross');
+	$(document).on('click','.popUp-cross', function () {
+		$('.popUp').hide();
+	});
 	ymaps.ready(init);
 		var myMap,
 		    myPlacemark;

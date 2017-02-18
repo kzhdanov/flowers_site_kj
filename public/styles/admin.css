@@ -7,7 +7,7 @@ form div {
 	margin: 20px 0;
 }
 
-#sub {
+.sub_btn {
 	width: 100px;
 	height: 40px;
 	background-color: #3C5A99;
@@ -28,7 +28,7 @@ form div {
 	cursor: pointer;
 }
 
-#sub:hover {
+.sub_btn:hover {
 	background-color: #263B68;
 }
 

@@ -4,7 +4,6 @@
               <th>№</th>
               <th>Дата создания</th>
               <th>Текст</th>
-              <th>Цена</th>
               <th>Отображается на сайте?</th>
               <th>Картинка</ht>
               <th style='width:180px;'>Действия</th>
@@ -19,14 +18,13 @@
 		      		  flowers[i].dateCreate.getFullYear()
 		      %></td>
 		      <td><%= flowers[i].content %></td>
-		      <td><%= flowers[i].price %></td>
 		      <td><input type='checkbox' onclick="ActiveClick(event)" <%= flowers[i].isActive? 'checked' : '' %> /></td>
 		      <td style='text-align:center;padding:0;'>
-		      	<img width="120px" src="./Downloads/Bouquets/<%= flowers[i].src %>" />
+		      	<img width="120px" src="./Downloads/Flowers/<%= flowers[i].src %>" />
 		      </td>
 		      <td>
-		      	<a href="#" style='display:none;' onclick="SaveClick(event, '<%= flowers[i].id %>')">Сохранить</a>
-		      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style='float: right' onclick="DeleteClick(event, '<%= flowers[i].id %>')">Удалить</a>
+		      	<a href="#" style='display:none;' onclick="SaveClickFlower(event, '<%= flowers[i].id %>')">Сохранить</a>
+		      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style='float: right' onclick="DeleteClickFlower(event, '<%= flowers[i].id %>')">Удалить</a>
 		      </td>
 		    </tr>
 		  <% } %>

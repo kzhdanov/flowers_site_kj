@@ -1,0 +1,7 @@
+<% if (data && data.length>0) { %>
+	<% for(var i=0; i<data.length; i++) { %>
+		<div data-content="<%= data[i].content %>" data-price="<%= data[i].price %>">
+			<img src="./Downloads/Bouquets/<%= data[i].src %>" />
+		</div>
+	<% } %>
+<% } %>
