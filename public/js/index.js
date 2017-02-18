@@ -155,7 +155,7 @@ $(function () {
 					}
 
 					var coord = $('.instagram').eq(0).offset();
-					$('.f_m').show().addClass('active').css({ 'right': coord.left, 'top': size });
+					$('.f_m').show().addClass('active').css({'margin-top': '0'});
 					var lng = $('.img-right').css('width').length;
 					var centerDecor = Number($('.img-right').css('width').substring(0, lng-2) / 2) + 'px';
 					$('.bouquet').css( 'left', centerDecor );
@@ -173,7 +173,7 @@ $(function () {
 					$('.block-left').find('.hovereffectactive').removeClass('hovereffectactive')
 					.addClass('hovereffect');
 					
-					$('.f_m').hide().removeClass('active').css({'right': 0, 'top': '83%'});
+					$('.f_m').hide().removeClass('active').css({'right': 0, 'margin-top': '-80px'});
 
 					setTimeout(function () {
 						var img = $('.hovereffect').eq(0).find('img').css('height');
@@ -213,10 +213,10 @@ $(function () {
 	})
 
 	/* ИНПУТЫ */
-	$('#fm_phone').inputmask("+7 (999) 999 99 99");
-	$('#fm_mail').inputmask({ alias: "email"});
-	$('#fm_data').inputmask({ alias: "date"});
-	$('#fm_time').inputmask("99:99");
+	$('#fm_phone, #fm_phone2').inputmask("+7 (999) 999 99 99");
+	$('#fm_mail, #fm_mail2').inputmask({ alias: "email"});
+	$('#fm_data, #fm_data2').inputmask({ alias: "date"});
+	$('#fm_time, #fm_time2').inputmask("99:99");
 
 	$('.fm_btn').click(function () {
 		InputError.call($('#fm_name'));
@@ -343,6 +343,15 @@ $(function () {
 	$(document).on('click','.popUp-cross', function () {
 		$('.popUp').hide();
 	});
+
+	$(document).off('click', 'input[type="radio"]');
+	$(document).on('click','input[type="radio"]', function () {
+		if($(this).val() === '1')
+			$('.popUp-delivery').show();
+		else 
+			$('.popUp-delivery').hide();
+	});
+	
 	ymaps.ready(init);
 		var myMap,
 		    myPlacemark;

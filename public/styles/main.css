@@ -65,6 +65,8 @@ a {text-decoration: none; color: #328B8E;}
 .f_m.active {
 	background-color: #FFFFFF;
 	width: 600px;
+    margin-right: 243px;
+    float: right;
 }
 .f_m {
 	position: relative;
@@ -165,7 +167,7 @@ input:focus {
 	width: 47.5% !important;
 	display: inline-block;
 }
-#fm_time {
+#fm_time, #fm_time2 {
     margin-left: 16px;
 }
 .f_m-menu {
@@ -182,13 +184,20 @@ input:focus {
 .f_m-left.unactive {
 	background-color: #F2E6E4;
 }
-
+.f_m-left.unactive:hover {
+	background-color: #f3d5d4;
+}
 .f_m-right {
 	background-color: #F2E6E4;
 	float: right;
 }
-
 .f_m-right.active {
+	background-color: #F6F6F6;
+}
+.f_m-right:hover {
+	background-color: #f3d5d4;
+}
+.f_m-right.active:hover {
 	background-color: #F6F6F6;
 }
 
@@ -215,7 +224,7 @@ input:focus {
 	        justify-content: flex-end;
 }
 
-.fm_btn:hover {
+.fm_btn:hover, .fm_btn2:hover {
 	background-color: #10595C;
 }
 
@@ -968,7 +977,7 @@ input:focus {
 	display: none;	
     position: absolute;
     width: 580px;
-    height: 103%;
+    min-height: 1070px;
     top: -20px;
     background-color: #F6F6F6;
     z-index: 10;
@@ -994,6 +1003,9 @@ input:focus {
 	width: 70%;
 	margin-bottom: 10px;
 }
+.popUp-bottomMarg {
+	margin-bottom: 40px;
+}
 .js-popUp-price {
 	width: 25%;
 	position: absolute;
@@ -1003,6 +1015,64 @@ input:focus {
 	color: #328B8E;
     font-family: 'Proxima Nova Bold';
     font-size: 36px;
+}
+.loader {
+	width: 50px;
+	margin-left: 47%;
+	-webkit-animation: spin 4s linear infinite;
+	        animation: spin 4s linear infinite;
+}
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+.fm_btn2 {
+ 	height: 35px;
+    background-color: #328B8E;
+    color: #FFF;
+    width: 185px;
+    text-align: center;
+    padding-top: 15px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.radio_block {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+    height: 100px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.radio_block input[type="radio"] { position: relative; }
+.radio_block .addmarg { margin-left: 50px; }
+.radio_block input[type="radio"]:before {
+    content: "";
+    position: absolute;
+   	border: 2px solid #328B8E;
+   	border-radius: 100px;
+   	width: 16px;
+   	height: 16px;
+   	left: -6px;
+    top: -5px;
+    background-color: #F6F6F6;
+}
+input[type=radio]:checked:before {
+  border: 6px solid #328B8E;
+  width: 8px;
+  height: 8px;
+}
+.radio_block span {
+	margin: 0 10px;
+	display: block;
+}
+
+.popUp-delivery {
+	display: none;
 }
 /* Средние экраны */
 @media all and (max-width: 1199px) {
@@ -1014,8 +1084,14 @@ input:focus {
 	.left_active,
 	.f_m_views input[type="text"],
 	.footer_content,
-	.instagram  { width:100%; }
-
+	.instagram, .f_m_nowAvailable, .flowers_container_slider { width:100%; }
+	.bouquet_container_main div {
+		-webkit-flex-basis: 48.5%;
+		    -ms-flex-preferred-size: 48.5%;
+		        flex-basis: 48.5%;
+	}
+	.popUp {width: 96%;	}
+	
 	.Wallop {width:88%;height:380px;}
 	.footer_content .footer_content-ic{ width:80%; }
 	#fm_time { margin-left: 3%; }
