@@ -340,11 +340,15 @@ $(function () {
 
 		$('.popUp-img').attr('src', src);
 		$('.popUp').show();
+		var h = $('.popUp').css('height')
+						   .substring(0, $('.popUp').css('height').length-2);
+		$('.hellSpacer').css('height', h/3+190);
 	});
 
 	$(document).off('click', '.popUp-cross');
 	$(document).on('click','.popUp-cross', function () {
 		$(this).parent().hide();
+		$('.hellSpacer').css('height', 0);
 	});
 
 	$(document).off('click', 'input[type="radio"]');
