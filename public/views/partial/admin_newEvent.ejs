@@ -1,0 +1,39 @@
+<form action="#">
+  <h1>Создать новое событие</h1>
+  <div>
+    <label for='title'>Заголовок</label><br/>
+    <input name='title' id='title' style='width: 400px'/>
+  </div>
+
+  <div>
+  	<label for='content'>Описание</label><br/>
+  	<textarea type='text' rows="12" name='content' id='content' style='width: 400px'/>
+  </div>
+
+   <div>
+  	<label for='imagesFolderSrc' style='display:block;width: 150%;'>
+      Путь к папке с событием (из 'проект/public/Downloads/Events/...')
+      <br />
+      Например: Свадьба Натальи и Станислава в замке Бип
+    </label>
+  	<input type='text' name='imagesFolderSrc' id='imagesFolderSrc' style='width: 400px'/>
+   </div>
+
+   <div>
+    <label for='previewSrc' style='display:block;width: 150%;'>
+      Путь к картинке предпросмотра (из 'проект/public/Downloads/Events/название папки с событием')
+      <br />
+      Например: DSC03329.jpg
+    </label>
+    <input type='text' name='previewSrc' id='previewSrc' style='width: 400px'/>
+   </div>
+
+   <div>
+  	<label for='isActive'>Активировать?</label><br/>
+  	<input type='checkbox' name='isActive' id='isActive' />
+   </div>
+
+   <div>
+  	<div id='subE' class='sub_btn'>Сохранить</div>
+   </div>
+</form>

@@ -155,7 +155,7 @@ $(function () {
 					}
 
 					var coord = $('.instagram').eq(0).offset();
-					$('.f_m').show().addClass('active').css({ 'right': coord.left, 'top': size });
+					$('.f_m').show().addClass('active').css({'margin-top': '0'});
 					var lng = $('.img-right').css('width').length;
 					var centerDecor = Number($('.img-right').css('width').substring(0, lng-2) / 2) + 'px';
 					$('.bouquet').css( 'left', centerDecor );
@@ -173,7 +173,7 @@ $(function () {
 					$('.block-left').find('.hovereffectactive').removeClass('hovereffectactive')
 					.addClass('hovereffect');
 					
-					$('.f_m').hide().removeClass('active').css({'right': 0, 'top': '83%'});
+					$('.f_m').hide().removeClass('active').css({'right': 0, 'margin-top': '-80px'});
 
 					setTimeout(function () {
 						var img = $('.hovereffect').eq(0).find('img').css('height');
@@ -213,10 +213,10 @@ $(function () {
 	})
 
 	/* ИНПУТЫ */
-	$('#fm_phone').inputmask("+7 (999) 999 99 99");
-	$('#fm_mail').inputmask({ alias: "email"});
-	$('#fm_data').inputmask({ alias: "date"});
-	$('#fm_time').inputmask("99:99");
+	$('#fm_phone, #fm_phone2').inputmask("+7 (999) 999 99 99");
+	$('#fm_mail, #fm_mail2').inputmask({ alias: "email"});
+	$('#fm_data, #fm_data2').inputmask({ alias: "date"});
+	$('#fm_time, #fm_time2').inputmask("99:99");
 
 	$('.fm_btn').click(function () {
 		InputError.call($('#fm_name'));
@@ -302,12 +302,15 @@ $(function () {
 	$(document).off('click','.flowers_nextbtn');
 	$(document).on('click','.flowers_nextbtn', function () {
 		var lng = $('.flowers_container_slider div').length;
+		var item = $('.flowers_container_slider div').eq(0).css('width');
 		if(!$('.flowers_prevbtn').is(':visible')) {
 			$('.flowers_prevbtn').show();
 		}
+		
+		State.sliderStep = Number(item.substring(0, item.length-2) / 2);
 
 		if(Number($('.flowers_container_slider div').eq(lng - 1).position().left + State.sliderStep) > 
-			$('.flowers_nextbtn').position().left) {
+			$('.flowers_nextbtn').position().left) {		
 				State.sliderPosition += Number(-1 * State.sliderStep);
 				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
 		} else {
@@ -341,8 +344,26 @@ $(function () {
 
 	$(document).off('click', '.popUp-cross');
 	$(document).on('click','.popUp-cross', function () {
-		$('.popUp').hide();
+		$(this).parent().hide();
 	});
+
+	$(document).off('click', 'input[type="radio"]');
+	$(document).on('click','input[type="radio"]', function () {
+		if($(this).val() === '1')
+			$('.popUp-delivery').show();
+		else 
+			$('.popUp-delivery').hide();
+	});
+
+	$(document).off('click', '.flowers_container_slider div');
+	$(document).on('click','.flowers_container_slider div', function () {
+		var src = $(this).find('img').attr('src');
+		$('.js-popUp-content').text(123);
+		
+		$('.popUp-img').attr('src', src);
+		$('.popUp2').show();
+	});
+		
 	ymaps.ready(init);
 		var myMap,
 		    myPlacemark;

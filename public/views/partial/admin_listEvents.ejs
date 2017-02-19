@@ -1,0 +1,39 @@
+<table>
+	<thead>
+            <tr>
+              <th>№</th>
+              <th>Дата создания</th>
+              <th>Заголовок</th>
+              <th>Текст</th>
+              <th>Папка с событием</th>
+              <th>Отображается на сайте?</th>
+              <th>Картинка предпросмотра</ht>
+              <th style='width:180px;'>Действия</th>
+            </tr>
+    </thead>
+    <tbody>
+    	<% if (data && data.length>0) { %>
+		  <% for(var i=0; i<data.length; i++) { %>
+		    <tr>
+		      <td><%= Number(i + 1) %></td>
+		      <td><%= data[i].dateCreate.getDate() + '.' + data[i].dateCreate.getMonth() + '.' +
+		      		  data[i].dateCreate.getFullYear()
+		      %></td>
+		      <td><%= data[i].title %></td>
+		      <td><%= data[i].content %></td>
+		      <td><%= data[i].imagesFolderSrc %></td>
+		      <td><input type='checkbox' onclick="ActiveClick(event)" <%= data[i].isActive? 'checked' : '' %> /></td>
+		      <td style='text-align:center;padding:0;'>
+		      	<img width="120px" src="./Downloads/Events/<%= data[i].imagesFolderSrc %>/<%= data[i].previewSrc %>" />
+		      </td>
+		      <td>
+		      	<a href="#" style='display:none;' onclick="SaveClickEvent(event, '<%= data[i].id %>')">Сохранить</a>
+		      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" style='float: right' onclick="DeleteClickEvent(event, '<%= data[i].id %>')">Удалить</a>
+		      </td>
+		    </tr>
+		  <% } %>
+		<% } else { %>
+		   <h1>Нет данных</h1>
+		<% } %>
+    </tbody>
+</table>
