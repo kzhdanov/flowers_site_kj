@@ -95,7 +95,7 @@ a {text-decoration: none; color: #328B8E;}
     font-size: 18px;
 	padding: 50px 15px 0 10px;
 	background-color: #F6F6F6;
-	min-height: 448px;
+	/*min-height: 448px;*/
 	position: relative;
 }
 .f_m_delivery {
@@ -239,7 +239,7 @@ input:focus {
 	margin-left: calc(50% - 600px);
 }
 
-.text-head {
+.text-head, .pw-title {
 	color: #328B8E;
 	font-family: 'Proxima Nova Bold';
 	font-size: 36px;
@@ -441,7 +441,7 @@ input:focus {
 	display: none;
 }
 
-.hovereffect:hover a.arrow, .hovereffect:hover a.arrowL {
+.hovereffect:hover a.arrow, .hovereffect:hover a.arrowL, .weddings div:hover a.arrowWedding {
   -webkit-transform: translateY(0px);
   -ms-transform: translateY(0px);
   transform: translateY(0px);
@@ -815,50 +815,54 @@ input:focus {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
 }
-.weddings .weddings_item-1, .weddings .weddings_item-2, .weddings .weddings_item-3,.weddings .overlay {
-	-webkit-flex-basis: 575px;
-	    -ms-flex-preferred-size: 575px;
-	        flex-basis: 575px;
-	height: 382px;
-	margin: 0 0 20px 0;
+
+.weddings div {
+ 	-webkit-flex-basis: 574px;
+ 	    -ms-flex-preferred-size: 574px;
+ 	        flex-basis: 574px;
+ 	margin-bottom: 20px;
 	position: relative;
+	cursor: pointer;
 }
-.weddings_item-1 {
-	background: url('../images/Weddings/Свадьба Ирины и Сергея в отеле Скандинавия/DSC04348.jpg') no-repeat;
-	background-size: 100%;
+.weddings .overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99%;
 }
-.weddings_item-2 {
-	background: url('../images/Weddings/Свадьба Натальи и Станислава в замке Бип/DSC03157.jpg') no-repeat;
-	background-size: 100%;
-}
-.weddings_item-3 {
-	background: url('../images/Weddings/Свадьба Натальи и Станислава в замке Бип/DSC03157.jpg') no-repeat;
-	background-size: 100%;
-}
-.hovereffect_weddings:hover .overlay {
+.weddings div:hover .overlay {
   opacity: 1;
   filter: alpha(opacity=100);
   cursor: pointer;
 }
-.hovereffect_weddings:hover .weddings-text {
+.weddings div:hover .weddings-text {
 	display: none;
 }
-.hovereffect_weddings a.arrowWedding {
+.weddings div a.arrowWedding {
   position: absolute;
   color: #fff;
-  top: -webkit-calc(50% - 30px);
-  top: calc(50% - 30px);
+  top: -webkit-calc(50% - 26px);
+  top: calc(50% - 26px);
   left: 40%;
   background-color: transparent;
+   -webkit-transform: translateY(50px);
+      -ms-transform: translateY(50px);
+          transform: translateY(50px);
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 .weddings .weddings-text {
 	text-transform: uppercase;
 	position: absolute;
+	width: 70%;
     color: #FFF;
-    bottom: 10px;
-    left: 10px;
+    bottom: -1px;
+    left: 20px;
+    font-family: 'Cormorant Medium';
+    font-size: 24px;
+    letter-spacing: 5px;
+    text-align: left;
 }
 .bouquet_container_main {
 	display: -webkit-box;
@@ -973,17 +977,20 @@ input:focus {
     cursor: pointer;
     display: none;
 }
-.popUp {
+.popUp, .popUp2 {
 	display: none;	
     position: absolute;
     width: 580px;
-    min-height: 1070px;
     top: -20px;
     background-color: #F6F6F6;
     z-index: 10;
     left: 0;
     padding: 10px;
 }
+.popUp2 {
+	min-height:776px;
+}
+
 .popUp-cross {
 	position: absolute;
     top: 0;
@@ -994,7 +1001,7 @@ input:focus {
     cursor: pointer;
 }
 .popUp-text {
-	font-family: 'Proxima Nova Thin';
+	font-family: 'Cormorant Light Italic';
     font-size: 18px;
     position: relative;
     margin-top: 10px;
@@ -1022,6 +1029,15 @@ input:focus {
 	-webkit-animation: spin 4s linear infinite;
 	        animation: spin 4s linear infinite;
 }
+.backto {
+	font-family: 'Proxima Nova Light';
+	font-size: 18px;
+	color: #328B8E;
+	margin-bottom: 20px; 
+	cursor: pointer;
+}
+.backto:hover { color: #10595C }
+
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
@@ -1048,7 +1064,7 @@ input:focus {
         -ms-flex-align: center;
             align-items: center;
 }
-.radio_block input[type="radio"] { position: relative; }
+.radio_block input[type="radio"] { position: relative; cursor: pointer; }
 .radio_block .addmarg { margin-left: 50px; }
 .radio_block input[type="radio"]:before {
     content: "";
@@ -1070,10 +1086,67 @@ input[type=radio]:checked:before {
 	margin: 0 10px;
 	display: block;
 }
-
-.popUp-delivery {
+.popUp-delivery, .popUpWhite {
 	display: none;
 }
+
+.popUpWhite {
+	position: absolute;
+    width: 1150px;
+    top: 200px;
+    background-color: #FFF;
+    z-index: 10;
+    padding: 10px;
+    margin-left: -webkit-calc(50% - 585px);
+    margin-left: calc(50% - 585px);
+}
+.popUpWhite-cross {
+	position: absolute;
+    top: 0;
+    right: 0;
+    width: 28px;
+    margin: 15px;
+    fill: #328B8E;
+    cursor: pointer;
+}
+.popUpWhite-cross:hover {fill: #10595C;}
+.pw-container {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column;
+	    -ms-flex-flow: column;
+	        flex-flow: column;
+    width: 973px;
+    margin-left: 89px;
+    margin-top: 20px;
+    text-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+.pw-title {
+	text-transform: uppercase;
+	width: 60%;
+    text-transform: uppercase;
+    text-align: center;
+}
+.pw-content {
+	font-family: 'Cormorant Light Italic';
+    font-size: 18px;
+    width: 62%;
+    text-align: center;
+    margin-top: 20px;
+}
+.pw-images {
+	margin: 40px;
+}
+.pw-images img {
+	padding-bottom: 20px;
+}
+
 /* Средние экраны */
 @media all and (max-width: 1199px) {
 	.text_content {

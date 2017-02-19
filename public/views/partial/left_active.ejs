@@ -10,32 +10,32 @@
     </div>
     <br />
     <div class='weddings'>
-    	<div class='weddings_item-1 hovereffect_weddings'>
-    	<div class='weddings-text'>Свадьба Ирины и Сергея в отеле Скандинавия</div>
-    		<div class="overlay">
-	             <a class="arrowWedding" href="#">
-	                  <svg id="arrow-r" data-name="arrow-r" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 28">
-	                  <polygon points="121 0 119 2 130 13 0 13 0 15 130 15 119 26 121 28 135 14 121 0"/></svg>
-	              </a>
-            </div>
-    	</div>
-    	<div class='weddings_item-2 hovereffect_weddings'>
-    		<div class="overlay">
-	             <a class="arrowWedding" href="#">
-	                  <svg id="arrow-r" data-name="arrow-r" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 28">
-	                  <polygon points="121 0 119 2 130 13 0 13 0 15 130 15 119 26 121 28 135 14 121 0"/></svg>
-	              </a>
-            </div>
-    	</div>
-    	<div class='weddings_item-3 hovereffect_weddings'>
-    		<div class="overlay">
-	             <a class="arrowWedding" href="#">
-	                  <svg id="arrow-r" data-name="arrow-r" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 28">
-	                  <polygon points="121 0 119 2 130 13 0 13 0 15 130 15 119 26 121 28 135 14 121 0"/></svg>
-	              </a>
-            </div>
-    	</div>
+	    <% if (data && data.length>0) { %>
+			<% for(var i=0; i<data.length; i++) { %>
+				<div class='weddings-item' data-id='<%=data[i].id %>'>
+				    <div class='weddings-text'><%= data[i].title %></div>
+					<img src="./Downloads/Events/<%= data[i].imagesFolderSrc %>/<%= data[i].previewSrc %>" />
+					<div class="overlay">
+			            <a class="arrowWedding" href="#">
+			                  <svg id="arrow-r" data-name="arrow-r" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 28">
+			                  <polygon points="121 0 119 2 130 13 0 13 0 15 130 15 119 26 121 28 135 14 121 0"/></svg>
+			            </a>
+		            </div>
+				</div>
+			<% } %>
+		<% } %>
     </div>
+</div>
+
+<div class="popUpWhite">
+	<svg class='popUpWhite-cross' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><polygon points="16 14 28 2 26 0 26 0 14 12 2 0 0 2 12 14 0 26 2 28 14 16 26 28 28 26 28 26 16 14"></polygon></svg>
+	<div class="pw-container">
+
+		<div class="pw-title"></div>
+		<div class="pw-content"></div>
+		<div class="pw-images"></div>
+		<div class='backto'>назад к галерее</div>
+	</div>
 </div>
 
 <script type="text/javascript" src="../js/left_active.js"></script>

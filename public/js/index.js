@@ -302,12 +302,15 @@ $(function () {
 	$(document).off('click','.flowers_nextbtn');
 	$(document).on('click','.flowers_nextbtn', function () {
 		var lng = $('.flowers_container_slider div').length;
+		var item = $('.flowers_container_slider div').eq(0).css('width');
 		if(!$('.flowers_prevbtn').is(':visible')) {
 			$('.flowers_prevbtn').show();
 		}
+		
+		State.sliderStep = Number(item.substring(0, item.length-2) / 2);
 
 		if(Number($('.flowers_container_slider div').eq(lng - 1).position().left + State.sliderStep) > 
-			$('.flowers_nextbtn').position().left) {
+			$('.flowers_nextbtn').position().left) {		
 				State.sliderPosition += Number(-1 * State.sliderStep);
 				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
 		} else {
@@ -341,7 +344,7 @@ $(function () {
 
 	$(document).off('click', '.popUp-cross');
 	$(document).on('click','.popUp-cross', function () {
-		$('.popUp').hide();
+		$(this).parent().hide();
 	});
 
 	$(document).off('click', 'input[type="radio"]');
@@ -351,7 +354,16 @@ $(function () {
 		else 
 			$('.popUp-delivery').hide();
 	});
-	
+
+	$(document).off('click', '.flowers_container_slider div');
+	$(document).on('click','.flowers_container_slider div', function () {
+		var src = $(this).find('img').attr('src');
+		$('.js-popUp-content').text(123);
+		
+		$('.popUp-img').attr('src', src);
+		$('.popUp2').show();
+	});
+		
 	ymaps.ready(init);
 		var myMap,
 		    myPlacemark;

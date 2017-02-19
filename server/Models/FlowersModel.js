@@ -4,7 +4,7 @@ module.exports = function(pool) {
 			pool.query('INSERT INTO Flowers SET ?', key, callback);
 		},
 		Get: function(callback) {
-			pool.query("SELECT * FROM Flowers ORDER BY 'dateCreate'", callback);
+			pool.query("SELECT * FROM Flowers ORDER BY 'dateCreate' DESC", callback);
 		},
 		SaveChange: function (key, callback) {
 			pool.query('UPDATE Flowers SET isActive=?, dateActivation=? WHERE id=?', key, callback);
@@ -16,7 +16,7 @@ module.exports = function(pool) {
 			pool.query('INSERT INTO Flowers2 SET ?', key, callback);
 		},
 		getFlowers: function(callback) {
-			pool.query("SELECT * FROM Flowers2 ORDER BY 'dateCreate'", callback);
+			pool.query("SELECT * FROM Flowers2 ORDER BY 'dateCreate' DESC", callback);
 		},
 		SaveChangeFlower: function (key, callback) {
 			pool.query('UPDATE Flowers2 SET isActive=?, dateActivation=? WHERE id=?', key, callback);
