@@ -21,15 +21,22 @@
 		<input type="text" placeholder="ИМЯ" name="fm_name" id="fm_name2">
 		<input type="text" placeholder="ТЕЛЕФОН" name="fm_phone" id="fm_phone2">
 		<input type="text" placeholder="E-MAIL" name="fm_mail" id="fm_mail2">
-		
+				
+		<div class='radio_block'>
+			<div>
+	  			<input type="radio" class="radio" name='delivery' id="r_b_1" value="0" checked />
+				<label for="r_b_1">Самовывоз</label>
+	    	</div>
+	    	<div>
+	  			<input type="radio" class="radio" name='delivery' id="r_b_2" value="1" />
+				<label for="r_b_2">Доставка</label>
+	    	</div>
+		</div>
+
 		<div class='popUp-delivery'>
 			<input type="text" placeholder="АДРЕС ДОСТАВКИ" name="fm_address" id="fm_address2">
 			<input type="text" placeholder="ДАТА" name="fm_data" id="fm_data2" class="fm_inline">
 			<input type="text" placeholder="ВРЕМЯ" name="fm_time" id="fm_time2" class="fm_inline">
-		</div>
-		<div class='radio_block'>
-			<input type="radio" name="delivery" value="0" checked><span>Самовывоз</span></input>
-	   		<input type="radio" name="delivery" value="1" class="addmarg"><span>Доставка</span></input>
 		</div>
 
 		<div class="fm_btn2">
