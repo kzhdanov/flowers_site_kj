@@ -44,6 +44,7 @@ input[type="submit"] {
      -webkit-appearance: none;
      border-radius: 0;
 }
+
 .radio + label {
   cursor: pointer;
 }
@@ -56,25 +57,26 @@ input[type="submit"] {
   padding: 0 0 0 35px;
 }
 .radio:checked + label:before {
-  width: 5px;
-  height: 5px;
+  width: 8px;
+  height: 8px;
   border: 8px solid #328B8E;
 }
 .radio:not(checked) + label:before {
   content: '';
   position: absolute;
   left: 0;
-  width: 13px;
-  height: 13px;
+  top: -2px;
+  width: 16px;
+  height: 16px;
   border: 4px solid #328B8E;
   border-radius: 50%;
   background: transparent;
 }
 .radio:hover + label:before  {
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
-  width: 5px;
-  height: 5px;
+  -webkit-transition: all .1s linear;
+  transition: all .1s linear;
+  width: 8px;
+  height: 8px;
   border: 8px solid #328B8E;
 }
 .radio_block div:nth-child(even) { margin-left: 50px; }
@@ -1260,5 +1262,9 @@ input:focus {
 	}
 	#fm_time2, #fm_time {
 		margin-left: 10px;
+	}
+	.popUp-cross {
+	    width: 80px;
+    	margin: 25px;
 	}
 }
