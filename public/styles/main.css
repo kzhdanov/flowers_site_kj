@@ -64,9 +64,9 @@ a {text-decoration: none; color: #328B8E;}
 }
 .f_m.active {
 	background-color: #FFFFFF;
-	width: 600px;
-    margin-right: 243px;
+	width: 50%;
     float: right;
+    margin-top:0;
 }
 .f_m {
 	position: relative;

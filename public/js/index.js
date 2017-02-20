@@ -101,8 +101,10 @@ $(function () {
 						GlobFunction.leftShow();
 					}
 					var lng = $('.img-left').css('width').length;
-					var centerDecor = Number($('.img-left').css('width').substring(0, lng-2) / 2) + 'px';
-					$('.decor').css( 'right', centerDecor );
+					var centerDecor = Number($('.img-left').css('width').substring(0, lng-2) / 2);
+					var selfSize = Number($('.decor').css('width').substring(0, lng-2) / 2);
+
+					$('.decor').css( 'right', centerDecor - selfSize );
 					$('.decor').css( 'display', '' ).append(closeX);
 					_self.find('.overlay').css( {'height': size, 'opacity': '1'} );
 					State.decoreBig = true;
@@ -157,8 +159,10 @@ $(function () {
 					var coord = $('.instagram').eq(0).offset();
 					$('.f_m').show().addClass('active').css({'margin-top': '0'});
 					var lng = $('.img-right').css('width').length;
-					var centerDecor = Number($('.img-right').css('width').substring(0, lng-2) / 2) + 'px';
-					$('.bouquet').css( 'left', centerDecor );
+					var centerDecor = Number($('.img-right').css('width').substring(0, lng-2) / 2);
+					var selfSize = Number($('.bouquet').css('width').substring(0, lng-2) / 2);
+
+					$('.bouquet').css( 'left', centerDecor - selfSize );
 					$('.bouquet').css( 'display', '' ).append(closeX);
 					_self.find('.overlay').css( {'height': size, 'opacity': '1'} );
 					State.bouquetBig = true;
