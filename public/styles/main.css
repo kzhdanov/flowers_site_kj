@@ -764,7 +764,7 @@ input:focus {
     margin: 0 15px;
 }
 .right_active-spacer {
-	height: 400px;
+	height: 280px;
 }
 .Wallop {
     position: relative;
@@ -782,22 +782,22 @@ input:focus {
 	background-color: #F8EDE9;;
 }
 .w-item1 {
-	background: url('../images/Comment/anastasiaolegovna.png') no-repeat;
+	background: url('../images/comment/anastasiaolegovna.png') no-repeat;
 	background-position: center top;
 	background-size: 130px;
 }
 .w-item2 {
-	background: url('../images/Comment/anastasiyagainullina.png') no-repeat;
+	background: url('../images/comment/anastasiyagainullina.png') no-repeat;
 	background-position: center top;
 	background-size: 130px;
 }
 .w-item3 {
-	background: url('../images/Comment/dezibalde.png') no-repeat;
+	background: url('../images/comment/dezibalde.png') no-repeat;
 	background-position: center top;
 	background-size: 130px;
 }
 .w-item4 {
-	background: url('../images/Comment/ksushabelyaeva.png') no-repeat;
+	background: url('../images/comment/ksushabelyaeva.png') no-repeat;
 	background-position: center top;
 	background-size: 130px;
 }
@@ -1194,6 +1194,20 @@ input:focus {
 	width:300px;
 	height:500px
 }
+.foto_ex { width: 100%; }
+.foto_ex img {
+	position: relative;
+	width: 55%;
+	cursor: pointer;
+}
+.foto_ex img:hover { z-index: 9999; }
+.foto_ex .foto_ex-1 { width: 55%; }
+.foto_ex .foto_ex-2, .foto_ex .foto_ex-4  {
+	float: right;
+	margin-top: -200px;
+}
+.foto_ex .foto_ex-3, .foto_ex .foto_ex-5 { margin-top: -200px; }
+
 /* Средние экраны */
 @media all and (max-width: 1199px) {
 	.text_content {
@@ -1204,7 +1218,7 @@ input:focus {
 	.f_m-content,
 	.left_active,
 	.f_m_views input[type="text"],
-	.footer_content,
+	.footer_content, .right_active,
 	.instagram, .f_m_nowAvailable, .flowers_container_slider
 	 { width:100%; }
 	.bouquet_container_main div {
@@ -1218,7 +1232,7 @@ input:focus {
 	.Wallop {width:88%;height:380px;}
 	.footer_content .footer_content-ic{ width:80%; }
 	#fm_time { margin-left: 3%; }
-	.right_active { width: 50%;	margin: 20px 0;}
+	.right_active-spacer { min-height:420px; }
 	.right_active-text{ width: auto; }
 	.f_m.active {width:50%;}
 	.weddings { -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }
