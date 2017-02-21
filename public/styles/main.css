@@ -945,6 +945,7 @@ input:focus {
         align-items: inherit;
         position: relative;
     width: 580px;
+    max-height: 130px;
 }
 .flowers_container_slider div {
 	min-width: 100px;
@@ -984,7 +985,7 @@ input:focus {
 .flowers_nextbtn {
 	position: absolute;
     min-width: 60px !important;
-    height: 140px;
+    height: 100%;
     background: -webkit-linear-gradient(left, rgba(50,139,142,.1) 0%,rgba(50,139,142,1) 100%);
     background: -webkit-linear-gradient(left, rgba(50,139,142,0) 0%,rgba(50,139,142,1) 100%);
     background: linear-gradient(to right, rgba(50,139,142,0) 0%,rgba(50,139,142,1) 100%);
@@ -995,17 +996,20 @@ input:focus {
 }
 .flowers_nextbtn svg {
 	width: 18px;
-    position: absolute;
-    right: 15px;
-    top: 48px;
+    position: relative;
     fill: #FFF;
+    display: block;
+    height: 100%;
+    float: right;
+    margin-right: 15px;
 }
 .flowers_prevbtn svg {
 	width: 18px;
-    position: absolute;
-    left: 15px;
-    top: 48px;
+    position: relative;
     fill: #FFF;
+    display: block;
+    height: 100%;
+    margin-left: 10px;
 }
 .flowers_nextbtn:hover svg, .flowers_prevbtn:hover svg, .popUp-cross:hover {
 	fill: #F8EDE9;
@@ -1013,7 +1017,7 @@ input:focus {
 .flowers_prevbtn {
 	position: absolute;
     min-width: 60px !important;
-    height: 140px;
+    height: 100%;
     background: -webkit-linear-gradient(right, rgba(50,139,142,0) 0%,rgba(50,139,142,1) 100%);
     background: linear-gradient(to left, rgba(50,139,142,0) 0%,rgba(50,139,142,1) 100%);
     top: 0;
@@ -1040,6 +1044,7 @@ input:focus {
     top: 0;
     right: 0;
     width: 28px;
+    height: 28px;
     margin: 15px;
     fill: #FFF;
     cursor: pointer;
@@ -1134,6 +1139,7 @@ input:focus {
     top: 0;
     right: 0;
     width: 28px;
+    height: 28px;
     margin: 15px;
     fill: #328B8E;
     cursor: pointer;
@@ -1170,14 +1176,21 @@ input:focus {
     margin-top: 20px;
 }
 .pw-images {
+	width: 100%;
 	margin: 40px;
+	height: 100%;
 }
 .pw-images img {
 	padding-bottom: 20px;
+	max-width: 90%;
 }
 .hellSpacer {
 	width: 100%;
 	height: 0;
+}
+#mapContainer {
+	width:300px;
+	height:500px
 }
 /* Средние экраны */
 @media all and (max-width: 1199px) {
@@ -1255,7 +1268,6 @@ input:focus {
 	.f_m input[type='text'] {
 		width: 98%;
 	}
-	
 	#fm_data2, #fm_time2, #fm_data, #fm_time { 
 		width: 45%; 
 		display: inline-block; 
@@ -1265,6 +1277,48 @@ input:focus {
 	}
 	.popUp-cross {
 	    width: 80px;
+	    height: 80px;
     	margin: 25px;
 	}
+	.decor {    
+		left: calc(50% - 50px);
+    	top: calc(50% - 16px);
+    	right: auto;
+    }
+    .bouquet {
+    	left: calc(50% - 50px);
+    	top: 38%;
+    	right: auto;
+    }
+    .decor:after, .bouquet:after {
+    	content: ' ';
+	    position: absolute;
+	    width: 100px;
+	    height: 21px;
+	    background-image: url(../images/right-big.svg);
+	    bottom: -18px;
+	    left: 0;
+    }
+    .bouquet:after {
+    	width: 125px;
+	    height: 26px;
+	    top: 25px;
+    }
+    .hovereffect { position: relative; }
+    .address-big {
+    	width: 60%;
+    }
+    #mapContainer { width: 100%; }
+    .address-big-text {
+    	align-items: center;
+    }
+    .address-phone_big, .address-time_big, .address-pos_big {
+    	position: relative;
+    	width: 30%;
+    }
+    .address-phone_big:before, .address-time_big:before, .address-pos_big:before {
+    	left: -50px;
+    	margin-right: 20px;
+    }
+    .hellSpacer {display: none;}
 }
