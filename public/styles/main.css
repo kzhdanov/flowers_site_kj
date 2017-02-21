@@ -1199,6 +1199,9 @@ input:focus {
 	position: relative;
 	width: 55%;
 	cursor: pointer;
+	opacity: 0;
+	-webkit-transition: opacity 1s linear;
+    transition: opacity 1s linear;
 }
 .foto_ex img:hover { z-index: 9999; }
 .foto_ex .foto_ex-1 { width: 55%; }
@@ -1291,11 +1294,14 @@ input:focus {
     	margin: 25px;
 	}
 	.decor {    
+		left: -webkit-calc(50% - 50px);    
 		left: calc(50% - 50px);
+    	top: -webkit-calc(50% - 16px);
     	top: calc(50% - 16px);
     	right: auto;
     }
     .bouquet {
+    	left: -webkit-calc(50% - 50px);
     	left: calc(50% - 50px);
     	top: 38%;
     	right: auto;
@@ -1314,10 +1320,21 @@ input:focus {
 	    height: 26px;
 	    top: 25px;
     }
-    .hovereffect { position: relative; }
+    .overlay {
+    	opacity: .3;
+    	height: 100%;
+    	-webkit-transition: none;
+    	transition: none;
+    }
+    .overlay.mobileactive {
+    	opacity: 1 !important;
+    }
+    .hovereffect:hover .overlay { opacity: .3; }
+	.hovereffect a.arrow, .hovereffect a.arrowL { display: none; }
+    .hovereffect { position: relative;height:100%; }
     .address-big { width: 60%; }
     #mapContainer { width: 100%; }
-    .address-big-text { align-items: center; }
+    .address-big-text { -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
     .address-phone_big, .address-time_big, .address-pos_big {
     	position: relative;
     	width: 30%;
