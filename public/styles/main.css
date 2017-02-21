@@ -35,7 +35,8 @@ body {
 	position: relative;
 	overflow-x: hidden;
 }
-a {text-decoration: none; color: #328B8E;}
+a {text-decoration:none;color:#328B8E;}
+a:hover {color:#10595C;}
 
 textarea,
 input[type="text"],
@@ -43,6 +44,11 @@ input[type="button"],
 input[type="submit"] {
      -webkit-appearance: none;
      border-radius: 0;
+}
+
+.rub {
+	font-family:Tahoma;
+	font-weight: bold;
 }
 
 .radio + label {
@@ -492,16 +498,12 @@ input:focus {
   -webkit-transition-delay: 0.3s;
           transition-delay: 0.3s;
 }
-#arrow-r {
-	width: 120px;
-    height: 26px;
+#arrow-r, #arrow-l {
+	width: 140px;
+    height: 30px;
 	fill: #FFF;
 }
-#arrow-l {
-	width: 120px;
-    height: 26px;
-	fill: #FFF;
-}
+
 .decor {
 	font-family: 'Cormorant Medium';
 	color: #FFF;
@@ -1255,9 +1257,7 @@ input:focus {
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
 	}
-	.footer_content div {
-		width: 30%; 
-	}
+	.footer_content div { width: 30%; }
 	.footer_content { height: auto }
 	.footer_content .footer_content-ic {width: auto;}
 	.footer_content-ic { padding: 10 0; }
@@ -1265,16 +1265,12 @@ input:focus {
 	.block,.text_content { width: 100% !important; }
 	.f_m { position: relative;}
 	.Wallop { position: relative !important;left:0;width:100%;height:300px;}
-	.f_m input[type='text'] {
-		width: 98%;
-	}
+	.f_m input[type='text'] { width: 98%; }
 	#fm_data2, #fm_time2, #fm_data, #fm_time { 
 		width: 45%; 
 		display: inline-block; 
 	}
-	#fm_time2, #fm_time {
-		margin-left: 10px;
-	}
+	#fm_time2, #fm_time { margin-left: 10px; }
 	.popUp-cross {
 	    width: 80px;
 	    height: 80px;
@@ -1295,7 +1291,7 @@ input:focus {
 	    position: absolute;
 	    width: 100px;
 	    height: 21px;
-	    background-image: url(../images/right-big.svg);
+	    background-image: url('../images/right-big.svg');
 	    bottom: -18px;
 	    left: 0;
     }
@@ -1305,13 +1301,9 @@ input:focus {
 	    top: 25px;
     }
     .hovereffect { position: relative; }
-    .address-big {
-    	width: 60%;
-    }
+    .address-big { width: 60%; }
     #mapContainer { width: 100%; }
-    .address-big-text {
-    	align-items: center;
-    }
+    .address-big-text { align-items: center; }
     .address-phone_big, .address-time_big, .address-pos_big {
     	position: relative;
     	width: 30%;

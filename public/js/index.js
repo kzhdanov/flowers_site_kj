@@ -4,7 +4,7 @@ $(function () {
 		bouquetBig: false,
 		menu_l: true,
 		sliderPosition: 0,
-		sliderStep: 50,
+		sliderStep: 0,
 		isMobile: false,
 	}
 
@@ -312,33 +312,51 @@ $(function () {
 	$(document).off('click','.flowers_nextbtn');
 	$(document).on('click','.flowers_nextbtn', function () {
 		var lng = $('.flowers_container_slider div').length;
-		var item = $('.flowers_container_slider div').eq(0).css('width');
+		var singleWidth = $('.flowers_container_slider div').eq(0).css('width');
+		var margin = $('.flowers_container_slider div').eq(0).css('margin-left');
+		var containerSize = $('.flowers_container_slider').css('width');
+		var mS = Number(margin.substring(0, margin.length - 2));
+		var iS = Number(singleWidth.substring(0, singleWidth.length - 2)) + 10;
+		var cS = Number(containerSize.substring(0, containerSize.length - 2));
+		var allS = Number(lng * iS);
+		var commonSize = cS + (-1*mS) + iS/2; 
+
 		if(!$('.flowers_prevbtn').is(':visible')) {
 			$('.flowers_prevbtn').show();
 		}
 		
-		State.sliderStep = Number(item.substring(0, item.length-2) / 2);
+		State.sliderStep = Number(iS/2);
 
-		if(Number($('.flowers_container_slider div').eq(lng - 1).position().left + State.sliderStep) > 
-			$('.flowers_nextbtn').position().left) {		
+		if(allS > commonSize) {		
 				State.sliderPosition += Number(-1 * State.sliderStep);
 				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
 		} else {
 			$(this).hide();
+			$('.flowers_container_slider div').eq(0).css('margin-left', Number(-1*(allS - 5 - cS)) + 'px');
+			
 		}
 	});
 
 	$(document).off('click','.flowers_prevbtn');
 	$(document).on('click','.flowers_prevbtn', function () {
+		var lng = $('.flowers_container_slider div').length;
+		var singleWidth = $('.flowers_container_slider div').eq(0).css('width');
+		var iS = Number(singleWidth.substring(0, singleWidth.length - 2)) + 10;
+		var margin = $('.flowers_container_slider div').eq(0).css('margin-left'); 
+		var mS = Number(margin.substring(0, margin.length - 2));
+
 		if(!$('.flowers_nextbtn').is(':visible')) {
 			$('.flowers_nextbtn').show();
 		}
 
-		if($('.flowers_container_slider div').eq(0).css('margin-left') != '0px') {
+		State.sliderStep = Number(iS/2);
+		console.log(mS + State.sliderStep);
+		if(Number(mS + State.sliderStep) < 0) {
 				State.sliderPosition += Number( State.sliderStep);
 				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
 		} else {
 			$(this).hide();
+			$('.flowers_container_slider div').eq(0).css('margin-left',0);
 		}
 	});
 
@@ -346,7 +364,7 @@ $(function () {
 	$(document).on('click','.bouquet_container_main div', function () {
 		var src = $(this).find('img').attr('src');
 		$('.js-popUp-content').text($(this).attr('data-content'));
-		$('.js-popUp-price').text($(this).attr('data-price') + '₽');
+		$('.js-popUp-price').html($(this).attr('data-price') + '<span class="rub">₽</span>');
 
 		$('.popUp-img').attr('src', src);
 		$('.popUp').show();
