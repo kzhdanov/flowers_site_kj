@@ -273,12 +273,18 @@ input:focus {
 	    -ms-flex-pack: flex-end;
 	        -webkit-box-pack: flex-end;
 	        justify-content: flex-end;
-}
 
+	min-height: 80px;
+}
+.fm_btn-wrap span {
+    text-align: center;
+    width: 100%;
+    padding-top: 30px;
+    color: #328b8e;
+}
 .fm_btn:hover, .fm_btn2:hover {
 	background-color: #10595C;
 }
-
 .text_content {
 	width: 600px;
 	font-family: 'Cormorant Light Italic';
@@ -1038,10 +1044,11 @@ input:focus {
     left: 0;
     padding: 10px;
 }
+/*
 .popUp2 {
 	min-height:776px;
 }
-
+*/
 .popUp-cross {
 	position: absolute;
     top: 0;
@@ -1065,9 +1072,6 @@ input:focus {
 .popUp-text div:first-child {
 	width: 70%;
 	margin-bottom: 10px;
-}
-.popUp-bottomMarg {
-	margin-bottom: 40px;
 }
 .js-popUp-price {
 	width: 25%;
@@ -1125,7 +1129,7 @@ input:focus {
 .popUp-delivery, .popUpWhite {
 	display: none;
 }
-.popUp-delivery { margin: -15px 0 40px 0; }
+.popUp-delivery { margin: -15px 0 0 0; }
 
 .popUpWhite {
 	position: absolute;
@@ -1267,9 +1271,7 @@ input:focus {
 		font-size: 3rem;
 	}
 	.text-head,.address-big-text,.js-popUp-price,
-	.left_active,.pw-title,.pw-content, .left_active
-	{ font-size: 3rem; }
-	
+	.left_active,.pw-title,.pw-content, .left_active { font-size: 3rem; }
 	.footer {
 		-webkit-box-ordinal-group:11;
 		-webkit-order:10;
@@ -1375,14 +1377,15 @@ input:focus {
 	.f_m_views input[type=text] {
 		font-size: 2rem;
 	}
-	.f_m_views .fm_inline { width: 46% !important; }
-	#fm_time2, #fm_time { margin-left: .5%; }
+	.f_m_views .fm_inline { width: 45% !important; }
+	#fm_time2, #fm_time { margin-left: 2%; }
 	.fm_btn2, .fm_btn {
 		height: 50px;
 		font-size: 2rem;
 		width: 220px;
 	}
 	.fm_btn-wrap { margin-top: 40px; }
+	.fm_btn-wrap span { font-size: 3rem; }
 	.popUp-delivery { margin-bottom: 100px; }
-	.weddings .overlay {height:98%;}
+	.weddings .overlay { height: 98%; }
 }
