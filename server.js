@@ -126,6 +126,49 @@ app.post('/sendEmail', (req, res) => {
   }
 });
 
+app.post('/sendEmail2', (req, res) => {
+  if(req.body) {
+    let {fio, phone, mail, address, date, time, isChecked, content } = req.body;
+
+    let transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'DesireEvent007@gmail.com',
+        pass: conf.managerEmailPass,
+      }
+    });
+
+    let body = `ФИО - ${fio} <br />
+                Телефон - ${phone} <br />
+                E-Mail - ${mail} <br />
+                Букет состоит из - ${content} <br />`;
+    //Значит есть доставка
+    if(isChecked === '1') {
+      body += `Есть доставка <br />
+               Адрес доставки - ${address} <br />
+               Дата доставки - ${date} <br />
+               Время доставки - ${time}<br />`;
+    }
+
+    let options = {
+      from: 'DesireEvent Mail Robot' + ' <DesireEvent007@gmail.com>',
+      to: conf.managerEmail,
+      subject: 'Заказ букета с сайта DesireEvent',
+      html: body,
+    };
+
+    transporter.sendMail(options, function(err, info) {
+      if (err) {
+        console.log(err);
+        res.json({ type: 'error' });
+      }
+
+      console.log("Сообщение отправлено: " + info.response);
+      res.json({ type: 'success' });
+    });
+  }
+});
+
 ///АДМИНИСТРАТИВНАЯ ЧАСТЬ///
 var auth = basicAuth(conf.siteAdminLogin, conf.siteAdminPassword);
 

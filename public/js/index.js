@@ -99,6 +99,9 @@ $(function () {
 					}, 1000)
 				} else {
 					if(e.target.className === 'decor' || e.target.id === 'closeX') {
+						if( $('.popUpWhite').is(':visible') ) 
+							$('.popUpWhite').hide();
+
 						$('.img-left').css('margin-top', 0);
 						$(this).find('.overlay').css('opacity', '0');
 						$('.spacer').show();
@@ -154,6 +157,7 @@ $(function () {
 						_self.find('.overlay').css( {'height': size, 'opacity': '1'} );
 						$('.bouquet').css( 'left', centerDecor - selfSize );
 						$('.bouquet').css( 'display', '' ).append(closeX);
+
 						State.bouquetBig = true;
 					}, 1000)
 				} else {
@@ -291,14 +295,28 @@ $(function () {
 		InputError.call($('#fm_mail'));
 		InputError.call($('#fm_address'));
 		InputError.call($('#fm_data'));
-		//InputError.call($('#fm_time'));
 
 		if($('input.error').length === 0) {
 			SendEmail();
 		}
 	});
 
-	//ОТПРАВИМ ПИСЬМО С ЗАКАЗОМ
+	$(document).off('click', '.fm_btn2');
+	$(document).on('click', '.fm_btn2', function () {
+		InputError.call($('#fm_name2'));
+		InputError.call($('#fm_phone2'));
+		InputError.call($('#fm_mail2'));
+		///Доставка
+		if($('input[type="radio"]:checked').val() === '1') { 
+			InputError.call($('#fm_address2'));
+			InputError.call($('#fm_data2'));
+		}
+
+		if($('input.error').length === 0) {
+			SendEmail2();
+		}
+	});
+	//ОТПРАВИМ ПИСЬМО С ЗАКАЗОМ ДОСТАВКА
 	function SendEmail() {
 		$.ajax({
 			method: "POST",
@@ -314,7 +332,35 @@ $(function () {
 			}
 		}).done( function (answer) {
 			if(answer && answer.type === 'success') {
-				alert('Заказ сформирован');
+				$('.fm_btn').hide();
+				$('.fm_btn').prev().css('width','100%').text('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.');
+			} else {
+				alert('Не удалось сформировать заказ...');
+			}	 
+		}).fail(function(ex) {
+			alert('Oh, something went wrong...');
+		});
+	}
+
+	function SendEmail2() { 
+		$.ajax({
+			method: "POST",
+			async: true,
+			url: '/sendemail2',
+			data: { 
+				fio: $('#fm_name2').val(), 
+				phone: $('#fm_phone2').val(),
+				mail: $('#fm_mail2').val(),
+				isChecked: $('input[type="radio"]:checked').val(),
+				address: $('#fm_address2').val(),
+				date: $('#fm_data2').val(),
+				time: $('#fm_time2').val(),
+				content: $('.popUp .js-popUp-content').text(),
+			}
+		}).done( function (answer) {
+			if(answer && answer.type === 'success') {
+				$('.fm_btn2').hide();
+				$('.fm_btn2').prev().css('width','100%').text('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.');
 			} else {
 				alert('Не удалось сформировать заказ...');
 			}	 
@@ -390,7 +436,6 @@ $(function () {
 		} else {
 			$(this).hide();
 			$('.flowers_container_slider div').eq(0).css('margin-left', Number(-1*(allS - 5 - cS)) + 'px');
-			
 		}
 	});
 
@@ -435,6 +480,11 @@ $(function () {
 	$(document).on('click','.popUp-cross', function () {
 		$(this).parent().hide();
 		$('.hellSpacer').css('height', 0);
+
+		if(!$('.fm_btn2').is(':visible')) {
+			$('.fm_btn2').prev().text('');
+			$('.fm_btn2').show();
+		}
 	});
 
 	$(document).off('click', 'input[type="radio"]');
