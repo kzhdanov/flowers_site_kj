@@ -247,7 +247,6 @@ input:focus {
 .f_m-right.active:hover {
 	background-color: #F6F6F6;
 }
-
 .fm_btn {
 	height: 35px;
     background-color: #328B8E;
@@ -259,7 +258,6 @@ input:focus {
     position: relative;
     margin: 30px -15px 0 0;
 }
-
 .fm_btn-wrap {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -1378,7 +1376,7 @@ input:focus {
 	.fm_btn2, .fm_btn {
 		height: 50px;
 		font-size: 2rem;
-		width: 220px;
+		padding: 15px 20px 0 25px;
 	}
 	.fm_btn-wrap { margin-top: 40px; }
 	.fm_btn-wrap span { font-size: 3rem; }
