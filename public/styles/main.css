@@ -7,10 +7,6 @@
   src: url('../font/Proxima Nova/Proxima Nova Bold.otf');
 }
 @font-face {
-  font-family: 'Proxima Nova Light Italic';
-  src: url('../font/Proxima Nova/Proxima Nova Light Italic.otf');
-}
-@font-face {
   font-family: 'Proxima Nova Light';
   src: url('../font/Proxima Nova/Proxima Nova Light.otf');
 }
@@ -19,12 +15,12 @@
   src: url('../font/Cormorant/Cormorant-Medium.ttf');
 }
 @font-face {
-  font-family: 'Proxima Nova Regular';
-  src: url('../font/Proxima Nova/Proxima Nova Regular.otf');
-}
-@font-face {
   font-family: 'Cormorant Light Italic';
   src: url('../font/Cormorant/Cormorant-LightItalic.ttf');
+}
+@font-face {
+  font-family: 'Rubl';
+  src: url('../font/rouble.otf');
 }
 html { font-size: 16px;}
 
@@ -48,7 +44,7 @@ input[type="submit"] {
 }
 
 .rub {
-	font-family:Tahoma;
+	font-family:Rubl;
 	font-weight: bold;
 }
 

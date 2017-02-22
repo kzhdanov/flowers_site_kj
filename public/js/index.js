@@ -466,7 +466,7 @@ $(function () {
 	$(document).on('click','.bouquet_container_main div', function () {
 		var src = $(this).find('img').attr('src');
 		$('.js-popUp-content').text($(this).attr('data-content'));
-		$('.js-popUp-price').html($(this).attr('data-price') + '<span class="rub">₽</span>');
+		$('.js-popUp-price').html($(this).attr('data-price') + '<span class="rub">p</span>');
 
 		$('.popUp-img').attr('src', src);
 		$('.popUp').show();
