@@ -193,6 +193,7 @@ $(function () {
 
 			if (_self.attr('data-side') === '0') {
 				if(!State.decoreBig) {
+					$('.decor').addClass('cross');
 					$('.text_content, .block-left').hide();
 					_self.find('.overlay').addClass('mobileactive');
 
@@ -204,6 +205,7 @@ $(function () {
 
 					State.decoreBig = true;
 				} else {
+					$('.decor').removeClass('cross');
 					$('.left_active').hide();
 					$('.text_content, .block-left').show();
 					_self.find('.overlay').removeClass('mobileactive');
@@ -221,9 +223,36 @@ $(function () {
 		$('.address-big').show(1000, function () {
 			$('.address-big div').show(1, function () {
 				$('.address-big div').css({'opacity': 1});
+
+				if($(this).attr('id') === 'mapContainer') 
+					MapInit();
 			})
 		});
+		
 	});
+
+	function MapInit () {
+		if(!$('#mapContainer').text()) {
+			ymaps.ready(init);
+				var myMap,
+			    myPlacemark;
+
+		    function init() {     
+		        myMap = new ymaps.Map("mapContainer", {
+		            center: [59.955701, 30.304585],
+		            zoom: 16,
+		            controls: ['zoomControl']
+		        });
+
+		        myPlacemark = new ymaps.Placemark([59.955701, 30.304585], { 
+		            hintContent: 'Мастерская Desire event', 
+		            balloonContent: 'Мастерская Desire event' 
+		        });
+
+		        myMap.geoObjects.add(myPlacemark);
+		    }
+		}
+	}
 
 	$('.close_block').click(function () {
 		$('.address-big').hide();
@@ -378,7 +407,7 @@ $(function () {
 		}
 
 		State.sliderStep = Number(iS/2);
-		console.log(mS + State.sliderStep);
+
 		if(Number(mS + State.sliderStep) < 0) {
 				State.sliderPosition += Number( State.sliderStep);
 				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
@@ -424,23 +453,4 @@ $(function () {
 		$('.popUp-img').attr('src', src);
 		$('.popUp2').show();
 	});
-		
-	ymaps.ready(init);
-		var myMap,
-		    myPlacemark;
-
-    function init() {     
-        myMap = new ymaps.Map("mapContainer", {
-            center: [59.955701, 30.304585],
-            zoom: 16,
-            controls: ['zoomControl']
-        });
-
-        myPlacemark = new ymaps.Placemark([59.955701, 30.304585], { 
-            hintContent: 'Мастерская Desire event', 
-            balloonContent: 'Мастерская Desire event' 
-        });
-
-        myMap.geoObjects.add(myPlacemark);
-    }
 })

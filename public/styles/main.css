@@ -1131,7 +1131,7 @@ input:focus {
     width: 1150px;
     top: 200px;
     background-color: #FFF;
-    z-index: 10;
+    z-index: 999999;
     padding: 10px;
     margin-left: -webkit-calc(50% - 585px);
     margin-left: calc(50% - 585px);
@@ -1262,7 +1262,10 @@ input:focus {
 	.popUp, .popUp2 {width: -webkit-calc(100% - 20px);width: calc(100% - 20px); }
 	.block-right {-webkit-box-ordinal-group:1;-webkit-order:0;-ms-flex-order:0;order:0;}
 	.block-left {-webkit-box-ordinal-group:3;-webkit-order:2;-ms-flex-order:2;order:2;}
-	.text_content {-webkit-box-ordinal-group:2;-webkit-order:1;-ms-flex-order:1;order:1; margin-bottom: 40px;}
+	.text_content {-webkit-box-ordinal-group:2;-webkit-order:1;-ms-flex-order:1;order:1; margin-bottom: 40px;
+		font-size: 3rem;
+	}
+	.text-head, .address-big-text, .js-popUp-price,.left_active, .pw-title, .pw-content { font-size: 3rem; }
 	.footer {
 		-webkit-box-ordinal-group:11;
 		-webkit-order:10;
@@ -1288,37 +1291,49 @@ input:focus {
 		display: inline-block; 
 	}
 	#fm_time2, #fm_time { margin-left: 10px; }
-	.popUp-cross {
+	.popUp-cross, .popUpWhite-cross {
 	    width: 80px;
 	    height: 80px;
     	margin: 25px;
 	}
 	.decor {    
-		left: -webkit-calc(50% - 50px);    
-		left: calc(50% - 50px);
-    	top: -webkit-calc(50% - 16px);
-    	top: calc(50% - 16px);
+		left: -webkit-calc(50% - 80px);    
+		left: calc(50% - 80px);
+    	top: -webkit-calc(50% - 30px);
+    	top: calc(50% - 30px);
     	right: auto;
+    	font-size: 3rem;
     }
     .bouquet {
-    	left: -webkit-calc(50% - 50px);
-    	left: calc(50% - 50px);
-    	top: 38%;
+    	left: -webkit-calc(50% - 110px);
+    	left: calc(50% - 110px);
+    	top: 34%;
     	right: auto;
+    	font-size: 3rem;
     }
     .decor:after, .bouquet:after {
     	content: ' ';
 	    position: absolute;
-	    width: 100px;
-	    height: 21px;
+	    width: 202px;
+	    height: 42px;
 	    background-image: url('../images/right-big.svg');
-	    bottom: -18px;
-	    left: 0;
+	    bottom: -36px;
+	    left: -10px;
     }
     .bouquet:after {
-    	width: 125px;
-	    height: 26px;
-	    top: 25px;
+    	width: 250px;
+    	height: 52px;
+	    top: 52px;
+    }
+    .decor.cross:after {
+    	content: ' ';
+	    position: absolute;
+	    width: 40px;
+	    height: 40px;
+	    background: url('../images/close.svg') no-repeat;
+	    right: -50px;
+	    left: auto;
+	    top: -15px;
     }
     .overlay {
     	opacity: .3;
@@ -1332,16 +1347,25 @@ input:focus {
     .hovereffect:hover .overlay { opacity: .3; }
 	.hovereffect a.arrow, .hovereffect a.arrowL { display: none; }
     .hovereffect { position: relative;height:100%; }
-    .address-big { width: 60%; }
-    #mapContainer { width: 100%; }
+    .address-big { width: 100%; }
+    #mapContainer { width: 100%; margin-top:40px;}
     .address-big-text { -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
     .address-phone_big, .address-time_big, .address-pos_big {
     	position: relative;
-    	width: 30%;
+    	width: 55%;
     }
     .address-phone_big:before, .address-time_big:before, .address-pos_big:before {
-    	left: -50px;
-    	margin-right: 20px;
+    	left: -70px;
     }
+    .address-phone_big:before, .address-pos_big:before {
+    	width: 32px;
+    	height: 40px;
+    }
+    .address-time_big:before { width: 40px; height: 40px; }
     .hellSpacer {display: none;}
+    #close {width: 80px; height: 80px;}
+    .close_block {font-size: 1.8rem}
+    .popUp-text { font-size: 2rem; }
+    .pw-title {width:70%;margin-top: 60px;}
+    .weddings .overlay {height: 97%;}
 }
