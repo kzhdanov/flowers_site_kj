@@ -1,3 +1,4 @@
+var isMob = false;
 $(function () {
 	var State = {
 		decoreBig: false,
@@ -9,7 +10,8 @@ $(function () {
 	}
 
 	State.isMobile = window.matchMedia('only screen and (min-width: 320px) and (max-device-width: 960px), all and (max-width: 960px)').matches;
-
+	isMob = State.isMobile;
+	
 	var closeX = '<svg id="closeX" data-name="closeX" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><polygon points="16 14 28 2 26 0 26 0 14 12 2 0 0 2 12 14 0 26 2 28 14 16 26 28 28 26 28 26 16 14"></polygon></svg>';
 
 	var GlobFunction = {
@@ -212,6 +214,19 @@ $(function () {
 					$('.decor').removeClass('cross');
 					$('.left_active').hide();
 					$('.text_content, .block-left').show();
+					_self.find('.overlay').removeClass('mobileactive');
+					State.decoreBig = false;
+				}
+			} else {
+				if(!State.decoreBig) {
+					GlobFunction.rightActive();
+					$('.bouquet').addClass('cross');	
+					_self.find('.overlay').addClass('mobileactive');
+
+					State.decoreBig = true;
+				} else {
+					$('.bouquet').removeClass('cross');	
+					$('.right_active').remove();
 					_self.find('.overlay').removeClass('mobileactive');
 					State.decoreBig = false;
 				}
@@ -498,7 +513,8 @@ $(function () {
 	$(document).off('click', '.flowers_container_slider div');
 	$(document).on('click','.flowers_container_slider div', function () {
 		var src = $(this).find('img').attr('src');
-		$('.js-popUp-content').text(123);
+		var text =  $(this).find('img').attr('data-text');
+		$('.js-popUp-content').text( text );
 		
 		$('.popUp-img').attr('src', src);
 		$('.popUp2').show();
