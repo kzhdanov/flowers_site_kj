@@ -403,6 +403,20 @@ $(function () {
 	var wallopEl = document.querySelector('.Wallop');
   	var slider = new Wallop(wallopEl);
 
+  	if(State.isMobile) {
+  		var touchPositionS, touchPositionE;
+  		$('.Wallop').on('touchstart', function (e) {
+  			touchPositionS = e.touches[0].clientX;
+  		});
+  		$('.Wallop').on('touchend', function (e) {
+  			 touchPositionE = e.changedTouches[0].clientX;
+  			 if(touchPositionS > touchPositionE) 
+  			 	slider.next();
+  			 else if (touchPositionE > touchPositionS)
+  			 	slider.previous();
+  		});
+  	}
+
   	//bouquet 
   	function GetBouquetsMain () {
 		$.ajax({
@@ -433,6 +447,10 @@ $(function () {
 
 	$(document).off('click','.flowers_nextbtn');
 	$(document).on('click','.flowers_nextbtn', function () {
+		FlowerSliderNext();
+	});
+
+	function FlowerSliderNext() { 
 		var lng = $('.flowers_container_slider div').length;
 		var singleWidth = $('.flowers_container_slider div').eq(0).css('width');
 		var margin = $('.flowers_container_slider div').eq(0).css('margin-left');
@@ -453,13 +471,17 @@ $(function () {
 				State.sliderPosition += Number(-1 * State.sliderStep);
 				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
 		} else {
-			$(this).hide();
+			$('.flowers_nextbtn').hide();
 			$('.flowers_container_slider div').eq(0).css('margin-left', Number(-1*(allS - 5 - cS)) + 'px');
 		}
-	});
+	}
 
 	$(document).off('click','.flowers_prevbtn');
 	$(document).on('click','.flowers_prevbtn', function () {
+		FlowerSliderPrev();
+	});
+
+	function FlowerSliderPrev() {
 		var lng = $('.flowers_container_slider div').length;
 		var singleWidth = $('.flowers_container_slider div').eq(0).css('width');
 		var iS = Number(singleWidth.substring(0, singleWidth.length - 2)) + 10;
@@ -476,10 +498,24 @@ $(function () {
 				State.sliderPosition += Number( State.sliderStep);
 				$('.flowers_container_slider div').eq(0).css('margin-left', State.sliderPosition + 'px');
 		} else {
-			$(this).hide();
+			$('.flowers_prevbtn').hide();
 			$('.flowers_container_slider div').eq(0).css('margin-left',0);
 		}
-	});
+	}
+
+	if(State.isMobile) {
+		var touchPositionStart, touchPositionEnd;
+  		$('.flowers_container_slider').on('touchstart', function (e) {
+  			touchPositionStart = e.touches[0].clientX;
+  		});
+  		$('.flowers_container_slider').on('touchend', function (e) {
+  			 touchPositionEnd = e.changedTouches[0].clientX;
+  			 if(touchPositionStart > touchPositionEnd) 
+  			 	FlowerSliderNext();
+  			 else if (touchPositionEnd > touchPositionStart)
+  			 	FlowerSliderPrev();
+  		});
+	}
 
 	$(document).off('click', '.bouquet_container_main div');
 	$(document).on('click','.bouquet_container_main div', function () {

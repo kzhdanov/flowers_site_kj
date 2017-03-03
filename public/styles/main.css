@@ -1,14 +1,20 @@
 @font-face {
   font-family: 'Proxima Nova Thin';
-  src: url('../font/Proxima Nova/Proxima Nova Thin.otf');
+  src: local('Proxima Nova Thin'), local('ProximaNovaThin'),
+	  url('../font/Proxima Nova/Proxima Nova Thin.otf') format('opentype'),
+	  url('../font/Roboto-Thin.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Proxima Nova Bold';
-  src: url('../font/Proxima Nova/Proxima Nova Bold.otf');
+  src: local('Proxima Nova Bold'), local('ProximaNovaBold'),
+  	   url('../font/Proxima Nova/Proxima Nova Bold.otf') format('opentype'),
+       url('../font/Roboto-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Proxima Nova Light';
-  src: url('../font/Proxima Nova/Proxima Nova Light.otf');
+  src: local('Proxima Nova Light'), local('ProximaNovaLight'),
+  	   url('../font/Proxima Nova/Proxima Nova Light.otf') format('opentype'),
+  	   url('../font/Roboto-Light.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Cormorant Medium';
@@ -654,7 +660,7 @@ input:focus {
 	-webkit-justify-content: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
-	margin-top: 100px;
+	margin-top: 22%;
     -webkit-box-align: left;
     -webkit-align-items: left;
         -ms-flex-align: left;
@@ -1191,7 +1197,9 @@ input:focus {
 }
 #mapContainer {
 	width:300px;
-	height:500px
+	height:50%;
+	position: absolute;
+	bottom: 0;
 }
 .foto_ex { width: 100%; }
 .foto_ex img {
@@ -1354,14 +1362,19 @@ input:focus {
 	.hovereffect a.arrow, .hovereffect a.arrowL { display: none; }
     .hovereffect { position: relative;height:100%; }
     .address-big { width: 100%; }
-    #mapContainer { width: 100%; margin-top:40px;}
-    .address-big-text { -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
+    #mapContainer { width: 100%; height: 40%;}
+    .address-big-text { 
+    	-webkit-box-align: left; 
+    	-webkit-align-items: left; 
+    	-ms-flex-align: left; 
+    	align-items: left; 
+    }
     .address-phone_big, .address-time_big, .address-pos_big {
     	position: relative;
     	width: 55%;
     }
-    .address-phone_big:before, .address-time_big:before, .address-pos_big:before {
-    	left: -70px;
+    .address-phone_big, .address-time_big, .address-pos_big {
+    	padding-left: 100px;
     }
     .address-phone_big:before, .address-pos_big:before {
     	width: 32px;
@@ -1403,5 +1416,25 @@ input:focus {
 	.foto_ex .foto_ex-2, .foto_ex .foto_ex-4, .foto_ex .foto_ex-3, .foto_ex .foto_ex-5 {
 		float: none;
 		margin-top: 0;
+	}
+	.address {
+		width:120px;
+		padding: 33px 0 20px 30px;
+	}
+	.address-map {font-size: 1.8rem;}
+	#map-icon {
+		width: 80px;
+		height: 80px;
+	}
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 960px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+	.address-big-text {
+		margin-top: 0;
+		font-size: 2rem;
 	}
 }
