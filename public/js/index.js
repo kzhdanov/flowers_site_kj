@@ -223,6 +223,10 @@ $(function () {
 					$('.bouquet').addClass('cross');	
 					_self.find('.overlay').addClass('mobileactive');
 
+					$('html, body').animate({
+					    "scrollTop": $(".Wallop").offset().top
+					 }, 1500);
+
 					State.decoreBig = true;
 				} else {
 					$('.bouquet').removeClass('cross');	

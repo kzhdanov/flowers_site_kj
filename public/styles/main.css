@@ -1179,7 +1179,7 @@ input:focus {
 .pw-images {
 	width: 100%;
 	margin: 40px;
-	height: 100%;
+	height: auto;
 }
 .pw-images img {
 	padding-bottom: 20px;
@@ -1342,7 +1342,8 @@ input:focus {
     }
     .overlay {
     	opacity: .3;
-    	height: 100%;
+    	min-height: auto;
+    	height: 99%;
     	-webkit-transition: none;
     	transition: none;
     }
@@ -1391,9 +1392,9 @@ input:focus {
 	.fm_btn-wrap { margin-top: 40px; }
 	.fm_btn-wrap span { font-size: 3rem; }
 	.popUp-delivery { margin-bottom: 100px; }
-	.weddings .overlay { height: 98%; }
+	.weddings .overlay { height: 97%; }
 	.right_active-text { font-size: 3rem; }
-	.right_active-spacer { min-height: auto; height: 50px; }
+	.right_active-spacer { min-height:0; height: 50px; }
 	.foto_ex img {
 		width: 100% !important;
 		margin-top: 10px;
