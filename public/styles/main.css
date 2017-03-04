@@ -352,8 +352,13 @@ input:focus {
 .instagram_fetch {
 	z-index: 9999;
 	width: 100%;
-	height: 100px;
+    height: 150px;
 	background-color: #FFF;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+    overflow: hidden;
 }
 
 .footer {

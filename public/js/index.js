@@ -308,7 +308,15 @@ $(function () {
 	$('#fm_data, #fm_data2').inputmask({ alias: "date"});
 	$('#fm_time, #fm_time2').inputmask("99:99");
 
-	$('.fm_btn').click(function () {
+	$(document).off('click', '.fm_btn');
+	$(document).on('click', '.fm_btn', SendEmailFn);
+
+	$(document).off('click', '.fm_btn2');
+	$(document).on('click', '.fm_btn2', SendEmail2Fn);
+
+	function SendEmailFn() { 
+		$(document).off('click', '.fm_btn');
+
 		InputError.call($('#fm_name'));
 		InputError.call($('#fm_phone'));
 		InputError.call($('#fm_mail'));
@@ -317,11 +325,14 @@ $(function () {
 
 		if($('input.error').length === 0) {
 			SendEmail();
+		} else {
+			$(document).on('click', '.fm_btn', SendEmailFn);
 		}
-	});
+	}
 
-	$(document).off('click', '.fm_btn2');
-	$(document).on('click', '.fm_btn2', function () {
+	function SendEmail2Fn() {
+		$(document).off('click', '.fm_btn2');
+
 		InputError.call($('#fm_name2'));
 		InputError.call($('#fm_phone2'));
 		InputError.call($('#fm_mail2'));
@@ -329,12 +340,18 @@ $(function () {
 		if($('input[type="radio"]:checked').val() === '1') { 
 			InputError.call($('#fm_address2'));
 			InputError.call($('#fm_data2'));
+		} else {
+			$('#fm_address2').removeClass('error');
+			$('#fm_data2').removeClass('error');
 		}
 
 		if($('input.error').length === 0) {
 			SendEmail2();
+		} else {
+			$(document).on('click', '.fm_btn2', SendEmail2Fn);
 		}
-	});
+	}
+
 	//ОТПРАВИМ ПИСЬМО С ЗАКАЗОМ ДОСТАВКА
 	function SendEmail() {
 		$.ajax({
@@ -350,6 +367,7 @@ $(function () {
 				time: $('#fm_time').val(),
 			}
 		}).done( function (answer) {
+			$(document).on('click', '.fm_btn', SendEmail2Fn);
 			if(answer && answer.type === 'success') {
 				$('.fm_btn').hide();
 				$('.fm_btn').prev().css('width','100%').text('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.');
@@ -377,6 +395,7 @@ $(function () {
 				content: $('.popUp .js-popUp-content').text(),
 			}
 		}).done( function (answer) {
+			$(document).on('click', '.fm_btn2', SendEmail2Fn);
 			if(answer && answer.type === 'success') {
 				$('.fm_btn2').hide();
 				$('.fm_btn2').prev().css('width','100%').text('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.');
