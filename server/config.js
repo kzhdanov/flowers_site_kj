@@ -7,7 +7,7 @@ module.exports =
 	user: 'Ivan',
 	password: 'Ivan_WWW2016@ru',
 	managerEmail: 'Anastasia@desireevent.ru, linteyz@yandex.ru',
-	managerEmailPass: 'Pfjryjvvtntkbwf',
+	managerEmailPass: '***',
 	siteAdminLogin: 'flowers_admin',
 	siteAdminPassword: 'test',
 }
