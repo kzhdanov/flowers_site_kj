@@ -6,8 +6,9 @@ module.exports =
 	database: 'Flowers',
 	user: 'Ivan',
 	password: 'Ivan_WWW2016@ru',
-	managerEmail: 'Anastasia@desireevent.ru, linteyz@yandex.ru',
-	managerEmailPass: '***',
+	managerEmail: 'anastasia@desireevent.ru, linteyz@yandex.ru',
+	smtpEmail: 'DesireEvent007@gmail.com',
+	smtpEmailPass: '***',
 	siteAdminLogin: 'flowers_admin',
 	siteAdminPassword: 'test',
 }

@@ -360,6 +360,13 @@ input:focus {
 	display: flex;
     overflow: hidden;
 }
+.instagram_fetch div {
+	min-width: 150px;
+	min-height: 150px;
+}
+.instagram_fetch div img {
+	width: 100%;
+}
 
 .footer {
 	display: -webkit-flex;
@@ -380,7 +387,7 @@ input:focus {
 
 .footer_content {
 	width: 1200px;
-	height: 100px;
+	height: 120px;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: -webkit-box;
@@ -627,7 +634,7 @@ input:focus {
 	z-index: 999999999;
 	background-color: #328B8E;
 	min-height: 100%;
-	letter-spacing: 2px;
+	letter-spacing: .08rem;
 }
 .close_block {
 	position: absolute;
@@ -674,6 +681,15 @@ input:focus {
     font-family: 'Proxima Nova Thin';
     font-size: 18px;
 }
+.address-email_big:before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    background: url(../images/mail.svg) no-repeat;
+    margin-top: 3px;
+}
 .address-big-text div {
 	min-width: 200px;
 }
@@ -688,7 +704,7 @@ input:focus {
 	-webkit-transition-timing-function: linear;
 	        transition-timing-function: linear;
 }
-.address-phone_big, .address-time_big, .address-pos_big {
+.address-phone_big, .address-time_big, .address-pos_big, .address-email_big {
 	margin: 20px 0 0 50px;
 }
 .address-phone_big:before {
@@ -1373,19 +1389,18 @@ input:focus {
     	-webkit-align-items: left; 
     	-ms-flex-align: left; 
     	align-items: left; 
+    	margin-top: 18%; 
     }
-    .address-phone_big, .address-time_big, .address-pos_big {
+    .address-phone_big, .address-time_big, .address-pos_big, .address-email_big {
     	position: relative;
     	width: 55%;
-    }
-    .address-phone_big, .address-time_big, .address-pos_big {
     	padding-left: 100px;
     }
     .address-phone_big:before, .address-pos_big:before {
     	width: 32px;
     	height: 40px;
     }
-    .address-time_big:before { width: 40px; height: 40px; }
+    .address-time_big:before, .address-email_big:before { width: 40px; height: 40px; }
     .hellSpacer {display: none;}
     #close {width: 80px; height: 80px;}
     .close_block {font-size: 1.8rem}
@@ -1440,6 +1455,6 @@ input:focus {
   and (orientation: landscape) {
 	.address-big-text {
 		margin-top: 0;
-		font-size: 2rem;
+		font-size: 1.6rem;
 	}
 }

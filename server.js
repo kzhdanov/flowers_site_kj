@@ -95,8 +95,8 @@ app.post('/sendEmail', (req, res) => {
     let transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: 'DesireEvent007@gmail.com',
-        pass: conf.managerEmailPass,
+        user: conf.smtpEmail,
+        pass: conf.smtpEmailPass,
       }
     });
 
