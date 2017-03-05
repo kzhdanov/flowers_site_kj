@@ -256,20 +256,23 @@ $(function () {
 
 	function MapInit () {
 		if(!$('#mapContainer').text()) {
+			var center = [59.955701, 30.304585];
+
 			ymaps.ready(init);
 				var myMap,
 			    myPlacemark;
 
 		    function init() {     
 		        myMap = new ymaps.Map("mapContainer", {
-		            center: [59.955701, 30.304585],
+		            center: center,
 		            zoom: 16,
 		            controls: ['zoomControl']
 		        });
 
-		        myPlacemark = new ymaps.Placemark([59.955701, 30.304585], { 
-		            hintContent: 'Мастерская Desire event', 
-		            balloonContent: 'Мастерская Desire event' 
+		        myPlacemark = new ymaps.Placemark(center, { 
+		            hintContent: '<span>ул. Введенская, 17, С-Пб</span><br/>' + 
+		            			 '<span>Мастерская Desire Event</span>', 
+		            balloonContent: 'Мастерская Desire Event' 
 		        });
 
 		        myMap.geoObjects.add(myPlacemark);
