@@ -8,7 +8,7 @@ module.exports =
 	password: 'Ivan_WWW2016@ru',
 	managerEmail: 'anastasia@desireevent.ru, linteyz@yandex.ru',
 	smtpEmail: 'DesireEvent007@gmail.com',
-	smtpEmailPass: '***',
+	smtpEmailPass: '*****',
 	siteAdminLogin: 'flowers_admin',
-	siteAdminPassword: 'test',
+	siteAdminPassword: '***',
 }
