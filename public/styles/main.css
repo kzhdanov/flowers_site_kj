@@ -1238,7 +1238,6 @@ input:focus {
 	margin-top: -160px;
 }
 .foto_ex .foto_ex-3 { margin-top: -160px; }
-
 /* Средние экраны */
 @media all and (max-width: 1199px) {
 	.text_content {
