@@ -1233,11 +1233,11 @@ input:focus {
 }
 .foto_ex img:hover { z-index: 9999; }
 .foto_ex .foto_ex-1 { width: 55%; }
-.foto_ex .foto_ex-2, .foto_ex .foto_ex-4  {
+.foto_ex .foto_ex-2  {
 	float: right;
-	margin-top: -200px;
+	margin-top: -160px;
 }
-.foto_ex .foto_ex-3, .foto_ex .foto_ex-5 { margin-top: -200px; }
+.foto_ex .foto_ex-3 { margin-top: -160px; }
 
 /* Средние экраны */
 @media all and (max-width: 1199px) {
@@ -1433,7 +1433,7 @@ input:focus {
 		margin-top: 10px;
 		opacity: 1;
 	} 
-	.foto_ex .foto_ex-2, .foto_ex .foto_ex-4, .foto_ex .foto_ex-3, .foto_ex .foto_ex-5 {
+	.foto_ex .foto_ex-2, .foto_ex .foto_ex-3 {
 		float: none;
 		margin-top: 0;
 	}

@@ -14,7 +14,7 @@ $(function () {
 	   			$(".foto_ex img").eq(index).css('opacity', 1);
 	   			index+=1;
 	   		}
-	   		if(index === 5)	{
+	   		if(index === 3)	{
 	   			$(document).off('scroll');
 	   			return false;
 	   		}
